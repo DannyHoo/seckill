@@ -1,6 +1,6 @@
 package com.danny.seckill.dao.jpa.data.system;
 
-import com.danny.seckill.dao.jpa.data.base.BaseEntity;
+import com.danny.seckill.dao.jpa.data.base.BaseDO;
 import org.hibernate.annotations.DynamicUpdate;
 
 import javax.persistence.Column;
@@ -19,7 +19,7 @@ import java.util.Date;
 @Entity
 @Table(name="t_user")
 @DynamicUpdate(true)
-public class UserDO extends BaseEntity {
+public class UserDO extends BaseDO {
 
     @Column(name = "userName",nullable = false)
     private String userName;

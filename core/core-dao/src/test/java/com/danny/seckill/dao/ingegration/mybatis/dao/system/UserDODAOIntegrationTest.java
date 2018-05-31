@@ -2,28 +2,22 @@ package com.danny.seckill.dao.ingegration.mybatis.dao.system;
 
 import com.alibaba.fastjson.JSON;
 import com.danny.seckill.dao.ingegration.mybatis.dao.BaseDaoSpringTest;
-import com.danny.seckill.dao.jpa.data.system.UserDO;
-import com.danny.seckill.dao.mybatis.dao.UserMapper;
-import com.danny.seckill.dao.mybatis.data.User;
+import com.danny.seckill.dao.mybatis.dao.system.UserMapper;
+import com.danny.seckill.dao.mybatis.data.system.UserDO;
 import org.junit.Assert;
-import org.junit.Before;
 import org.junit.Test;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.context.ApplicationContext;
-import org.springframework.context.support.ClassPathXmlApplicationContext;
 import org.springframework.test.annotation.Rollback;
-
-import java.util.Date;
 
 /**
  * @author huyuyang@lxfintech.com
- * @Title: UserDAOIntegrationTest
+ * @Title: UserDODAOIntegrationTest
  * @Copyright: Copyright (c) 2016
  * @Description:
  * @Company: lxjr.com
  * @Created on 2018-05-29 17:21:28
  */
-public class UserDAOIntegrationTest extends BaseDaoSpringTest {
+public class UserDODAOIntegrationTest extends BaseDaoSpringTest {
 
     @Autowired
     private UserMapper userMapper;
@@ -41,9 +35,9 @@ public class UserDAOIntegrationTest extends BaseDaoSpringTest {
     @Test
     @Rollback
     public void mybatisFindTest() {
-        User userFound = userMapper.selectByPrimaryKey(1l);
-        Assert.assertNotNull(userFound);
-        System.out.println("查询结果：" + JSON.toJSONString(userFound));
+        UserDO userDOFound = userMapper.selectByPrimaryKey(1l);
+        Assert.assertNotNull(userDOFound);
+        System.out.println("查询结果：" + JSON.toJSONString(userDOFound));
     }
 
 }

@@ -10,7 +10,13 @@
     <modelVersion>4.0.0</modelVersion>
 
     <artifactId>core-model</artifactId>
-
+    <dependencies>
+        <dependency>
+            <groupId>com.danny.seckill</groupId>
+            <artifactId>core-framework</artifactId>
+            <version>1.0-SNAPSHOT</version>
+        </dependency>
+    </dependencies>
 
 
 </project>

@@ -10,6 +10,17 @@
     <modelVersion>4.0.0</modelVersion>
 
     <artifactId>core-domain</artifactId>
-
+    <dependencies>
+        <dependency>
+            <groupId>com.danny.seckill</groupId>
+            <artifactId>core-dao</artifactId>
+            <version>1.0-SNAPSHOT</version>
+        </dependency>
+        <dependency>
+            <groupId>com.danny.seckill</groupId>
+            <artifactId>core-model</artifactId>
+            <version>1.0-SNAPSHOT</version>
+        </dependency>
+    </dependencies>
 
 </project>

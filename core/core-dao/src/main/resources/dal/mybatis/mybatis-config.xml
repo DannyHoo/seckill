@@ -37,7 +37,7 @@
 
     <!-- 实体类,简称 -设置别名 -->
     <!--<typeAliases>
-        <typeAlias alias="User" type="com.danny.seckill.dao.mybatis.data.User"/>
+        <typeAlias alias="UserDO" type="com.danny.seckill.dao.mybatis.data.system.UserDODO"/>
     </typeAliases>-->
     <!-- 实体接口映射资源 -->
     <!--

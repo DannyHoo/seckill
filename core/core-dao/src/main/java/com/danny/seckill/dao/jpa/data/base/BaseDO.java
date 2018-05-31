@@ -9,14 +9,15 @@ import java.util.Date;
 
 /**
  * @author huyuyang@lxfintech.com
- * @Title: BaseEntity
+ * @Title: BaseDO
  * @Copyright: Copyright (c) 2016
  * @Description:
  * @Company: lxjr.com
  * @Created on 2017-01-19 22:31:24
  */
 @MappedSuperclass
-public abstract class BaseEntity implements Serializable {
+public abstract class BaseDO implements Serializable {
+    protected static final long serialVersionUID = 2429073401643038863L;
 
     /** 主键 **/
     @Id
@@ -39,7 +40,7 @@ public abstract class BaseEntity implements Serializable {
         return id;
     }
 
-    public BaseEntity setId(Long id) {
+    public BaseDO setId(Long id) {
         this.id = id;
         return this;
     }
@@ -48,7 +49,7 @@ public abstract class BaseEntity implements Serializable {
         return comment;
     }
 
-    public BaseEntity setComment(String comment) {
+    public BaseDO setComment(String comment) {
         this.comment = comment;
         return this;
     }
@@ -57,7 +58,7 @@ public abstract class BaseEntity implements Serializable {
         return createTime;
     }
 
-    public BaseEntity setCreateTime(Date createTime) {
+    public BaseDO setCreateTime(Date createTime) {
         this.createTime = createTime;
         return this;
     }
@@ -66,7 +67,7 @@ public abstract class BaseEntity implements Serializable {
         return updateTime;
     }
 
-    public BaseEntity setUpdateTime(Date updateTime) {
+    public BaseDO setUpdateTime(Date updateTime) {
         this.updateTime = updateTime;
         return this;
     }

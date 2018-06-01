@@ -16,4 +16,5 @@ public interface UserService {
 
     CommonResult<User> findByUserName(UserParameter userParameter);
 
+    CommonResult<User> saveUser(UserParameter userParameter);
 }

@@ -8,6 +8,7 @@ import com.danny.seckill.service.system.UserService;
 import org.junit.Assert;
 import org.junit.Test;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.test.annotation.Rollback;
 
 /**
  * @author huyuyang@lxfintech.com
@@ -26,6 +27,16 @@ public class UserServiceImplIntegrationTest extends BaseServiceSpringTest {
     public void findByUserNameTest(){
         UserParameter userParameter=new UserParameter().setUsername("123");
         CommonResult<User> userCommonResult=userService.findByUserName(userParameter);
+        Assert.assertTrue(userCommonResult.isSuccess());
+        Assert.assertNotNull(userCommonResult.getBusinessObject());
+        this.print(userCommonResult);
+    }
+
+    @Test
+    @Rollback(false)
+    public void saveUserTest(){
+        UserParameter userParameter=new UserParameter().setUsername("123");
+        CommonResult<User> userCommonResult=userService.saveUser(userParameter);
         Assert.assertTrue(userCommonResult.isSuccess());
         Assert.assertNotNull(userCommonResult.getBusinessObject());
         this.print(userCommonResult);

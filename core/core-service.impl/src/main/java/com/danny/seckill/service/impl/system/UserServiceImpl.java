@@ -8,6 +8,7 @@ import com.danny.seckill.model.result.CommonResult;
 import com.danny.seckill.service.system.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 /**
  * @author huyuyang@lxfintech.com
@@ -32,10 +33,13 @@ public class UserServiceImpl implements UserService {
         return userCommonResult;
     }
 
+    @Override
     public CommonResult<User> saveUser(UserParameter userParameter) {
-        userGlue.saveUser(userParameter);
-        User user=userGlue.findByUserName(userParameter.getUsername());
-        return null;
+        User user=userGlue.saveUser(userParameter);
+        CommonResult<User> userCommonResult=new CommonResult<>();
+        userCommonResult.setBusinessObject(user).setBusinessResult(ResultStatusEnum.SUCCESS);
+        int i=10/0;
+        return userCommonResult;
     }
 
     public CommonResult<User> updateUserByUserName(UserParameter userParameter) {

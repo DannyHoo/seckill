@@ -24,8 +24,8 @@ public class CommonResult<B> implements Externalizable {
     /* 业务处理结果 */
     protected B businessObject = null;
 
-    /* 业务处理状态描述 */
-    protected String resultCodeMsg = null;
+    /* 业务处理异常描述 */
+    protected String exceptionMsg = null;
 
     public CommonResult() {
     }
@@ -38,7 +38,7 @@ public class CommonResult<B> implements Externalizable {
     public CommonResult(ResultStatusEnumInterface businessResult, B businessObject, String resultCodeMsg) {
         this.businessResult = businessResult;
         this.businessObject = businessObject;
-        this.resultCodeMsg = resultCodeMsg;
+        this.exceptionMsg = resultCodeMsg;
     }
 
     /**
@@ -78,22 +78,21 @@ public class CommonResult<B> implements Externalizable {
         return this;
     }
 
-    public String getResultCodeMsg() {
-        return resultCodeMsg;
+    public String getExceptionMsg() {
+        return exceptionMsg;
     }
 
-    public CommonResult setResultCodeMsg(String resultCodeMsg) {
-        this.resultCodeMsg = resultCodeMsg;
+    public CommonResult setExceptionMsg(String exceptionMsg) {
+        this.exceptionMsg = exceptionMsg;
         return this;
     }
-
 
     /* 指定序列化字段输出对象 */
     @Override
     public void writeExternal(ObjectOutput out) throws IOException {
         out.writeObject(businessResult);
         out.writeObject(businessObject);
-        out.writeObject(resultCodeMsg);
+        out.writeObject(exceptionMsg);
     }
 
     /* 指定序列化字段输入对象 */
@@ -101,6 +100,6 @@ public class CommonResult<B> implements Externalizable {
     public void readExternal(ObjectInput in) throws IOException, ClassNotFoundException {
         businessResult = (ResultStatusEnumInterface) in.readObject();
         businessObject = (B) in.readObject();
-        resultCodeMsg = (String) in.readObject();
+        exceptionMsg = (String) in.readObject();
     }
 }

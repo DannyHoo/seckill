@@ -36,7 +36,7 @@ public class UserServiceImplIntegrationTest extends BaseServiceSpringTest {
     @Rollback(false)
     public void saveUserTest(){
         UserParameter userParameter=new UserParameter().setUsername("123");
-        CommonResult<User> userCommonResult=userService.saveUser(userParameter);
+        CommonResult<User> userCommonResult=userService.updateUserByUserName(userParameter);
         Assert.assertTrue(userCommonResult.isSuccess());
         Assert.assertNotNull(userCommonResult.getBusinessObject());
         this.print(userCommonResult);

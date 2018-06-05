@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!-- LogBack的配置大概包括3部分：appender, logger和root。-->
+
+<!--
+configuration节点配置说明：
+scan：当此属性设置为true时，配置文件如果发生改变，将会被重新加载，默认值为true.
+scanPeriod：设置监测配置文件是否有修改的时间间隔，如果没有给出时间单位，默认单位是毫秒。当scan为true时，此属性生效。默认的时间间隔为1分钟.
+debug：当此属性设置为true时，将打印出logback内部日志信息，实时查看logback运行状态。默认值为false。
+-->
+<configuration scan="true" scanPeriod="60 second" debug="false">
+
+    <!--每个logger都关联到logger上下文，默认上下文名称为“default”。但可以使用<contextName>设置成其他名字，用于区分不同应用程序的记录。一旦设置，不能修改。-->
+    <!--<contextName>seckill</contextName>-->
+
+    <!-- 通过<property>定义的值会被插入到logger上下文中。定义变量后，可以使“${}”来使用变量。 -->
+    <property resource="/META-INF/app_${envType}.properties"/>
+
+    <!-- [公共Appender] 控制台STDOUT -->
+    <appender name="STDOUT-APPENDER" class="ch.qos.logback.core.ConsoleAppender">
+        <encoder charset="UTF-8">
+            <!--%d日期格式；%p输出日志的优先级；%c所属类的全名；%l输出日志发生的位置，线程，代码行数；%m程序输出的信息；%n换行 -->
+            <pattern>%d{yyyy-MM-dd HH:mm:ss.SSS} %-5p [%t] %c:%L - %m%n</pattern>
+        </encoder>
+    </appender>
+
+    <!-- [platform Appender]  -->
+    <appender name="PLATFORM-SERVICE"
+              class="ch.qos.logback.core.rolling.RollingFileAppender">
+        <file>${loggingRoot}/platform-service.log</file>
+        <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+            <!-- %i产生1.log;2.log -->
+            <fileNamePattern>${loggingRoot}/platform-service.%d{yyy-MM-dd}.%i.log
+            </fileNamePattern>
+            <maxHistory>3</maxHistory>
+            <timeBasedFileNamingAndTriggeringPolicy
+                    class="ch.qos.logback.core.rolling.SizeAndTimeBasedFNATP">
+                <!-- or whenever the file size reaches 1024MB -->
+                <maxFileSize>1024MB</maxFileSize>
+            </timeBasedFileNamingAndTriggeringPolicy>
+        </rollingPolicy>
+        <encoder>
+            <pattern>%d{yyyy-MM-dd HH:mm:ss.SSS} %-5p [%t] %c:%L - %m%n</pattern>
+        </encoder>
+    </appender>
+    <appender name="PLATFORM-DOMAIN"
+              class="ch.qos.logback.core.rolling.RollingFileAppender">
+        <file>${loggingRoot}/platform-domain.log</file>
+        <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+            <!-- %i产生1.log;2.log -->
+            <fileNamePattern>${loggingRoot}/platform-domain.%d{yyy-MM-dd}.%i.log
+            </fileNamePattern>
+            <maxHistory>3</maxHistory>
+            <timeBasedFileNamingAndTriggeringPolicy
+                    class="ch.qos.logback.core.rolling.SizeAndTimeBasedFNATP">
+                <!-- or whenever the file size reaches 1024MB -->
+                <maxFileSize>1024MB</maxFileSize>
+            </timeBasedFileNamingAndTriggeringPolicy>
+        </rollingPolicy>
+        <encoder>
+            <pattern>%d{yyyy-MM-dd HH:mm:ss.SSS} %-5p [%t] %c:%L - %m%n</pattern>
+        </encoder>
+    </appender>
+    <appender name="PLATFORM-DAO"
+              class="ch.qos.logback.core.rolling.RollingFileAppender">
+        <file>${loggingRoot}/platform-dao.log</file>
+        <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+            <!-- %i产生1.log;2.log -->
+            <fileNamePattern>${loggingRoot}/platform-dao.%d{yyy-MM-dd}.%i.log
+            </fileNamePattern>
+            <maxHistory>3</maxHistory>
+            <timeBasedFileNamingAndTriggeringPolicy
+                    class="ch.qos.logback.core.rolling.SizeAndTimeBasedFNATP">
+                <!-- or whenever the file size reaches 1024MB -->
+                <maxFileSize>1024MB</maxFileSize>
+            </timeBasedFileNamingAndTriggeringPolicy>
+        </rollingPolicy>
+        <encoder>
+            <pattern>%d{yyyy-MM-dd HH:mm:ss.SSS} %-5p [%t] %c:%L - %m%n</pattern>
+        </encoder>
+    </appender>
+
+    <!-- [摘要日志] -->
+
+    <logger name="com.danny.seckill.dao" additivity="false" level="${loggingLevel}">
+        <appender-ref ref="PLATFORM-DAO"/>
+        <appender-ref ref="ERROR-APPENDER"/>
+    </logger>
+
+    <logger name="com.danny.seckill.domain" additivity="false" level="${loggingLevel}">
+        <appender-ref ref="PLATFORM-DOMAIN"/>
+        <appender-ref ref="ERROR-APPENDER"/>
+    </logger>
+
+
+    <logger name="com.danny.seckill.service" additivity="false" level="INFO">
+        <appender-ref ref="PLATFORM-SERVICE"/>
+        <appender-ref ref="ERROR-APPENDER"/>
+    </logger>
+
+
+    <root level="${loggingLevel}">
+        <appender-ref ref="STDOUT-APPENDER"/>
+        <appender-ref ref="DEFAULT-APPENDER"/>
+    </root>
+
+</configuration>

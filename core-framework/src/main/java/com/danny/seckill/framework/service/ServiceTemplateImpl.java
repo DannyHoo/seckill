@@ -1,10 +1,15 @@
 package com.danny.seckill.framework.service;
 
+import com.danny.seckill.framework.concurrent.LockService;
+import com.danny.seckill.framework.concurrent.LockServiceImpl;
 import com.danny.seckill.framework.model.enums.ResultStatusEnum;
+import okhttp3.Call;
 import org.springframework.transaction.PlatformTransactionManager;
 import org.springframework.transaction.TransactionStatus;
 import org.springframework.transaction.support.TransactionCallback;
 import org.springframework.transaction.support.TransactionTemplate;
+
+import java.util.concurrent.locks.Lock;
 
 /**
  * @author huyuyang@lxfintech.com
@@ -17,6 +22,8 @@ import org.springframework.transaction.support.TransactionTemplate;
 public class ServiceTemplateImpl implements ServiceTemplate {
 
     private TransactionTemplate transactionTemplate;
+
+    private LockService lockService;
 
     public ServiceTemplateImpl(PlatformTransactionManager platformTransactionManager) {
         if (transactionTemplate == null) {
@@ -32,6 +39,13 @@ public class ServiceTemplateImpl implements ServiceTemplate {
         return this.transactionTemplate;
     }
 
+    private LockService getLockService() {
+        if (this.lockService == null) {
+            lockService = new LockServiceImpl();
+        }
+        return this.lockService;
+    }
+
     /**
      * 支持事务的模板
      *
@@ -39,34 +53,8 @@ public class ServiceTemplateImpl implements ServiceTemplate {
      * @return
      */
     @Override
-    public CallbackResult execute(final ServiceCallbackAction action) {
-        CallbackResult callbackResult = CallbackResult.success();
-        try {
-            //检查入参是否合法
-            callbackResult = action.executeCheck();
-            //入参合法再执行方法内容，否则直接返回参数检查结果
-            if (callbackResult.isSuccess()) {
-                callbackResult = (CallbackResult) this.getTransactionTemplate().execute(new TransactionCallback() {
-                    @Override
-                    public Object doInTransaction(TransactionStatus status) {
-                        CallbackResult result= CallbackResult.success();
-                        try{
-                            result = action.executeAction();
-                            if (result.isFailure()) {
-                                status.setRollbackOnly();
-                            }
-                        }catch (Exception e){
-                            status.setRollbackOnly();
-                            throw e;
-                        }
-                        return result;
-                    }
-                });
-            }
-        } catch (Exception e) {
-            return CallbackResult.failure(ResultStatusEnum.UNKOWN_SYS_ERROR);
-        }
-        return callbackResult;
+    public CallbackResult execute(ServiceCallbackAction action) {
+        return executeServiceCallbackAction(action);
     }
 
     /**
@@ -88,7 +76,18 @@ public class ServiceTemplateImpl implements ServiceTemplate {
      */
     @Override
     public CallbackResult executeDistributeLock(ServiceCallbackAction action, String lockKey) {
-        return null;
+        Lock lock = null;
+        try {
+            lock=this.getLockService().getDistributeLock(lockKey);
+            lock.lockInterruptibly();
+            return executeServiceCallbackAction(action);
+        }catch (Exception e){
+            return CallbackResult.failure(ResultStatusEnum.UNKOWN_SYS_ERROR);
+        }finally {
+            if (lock!=null){
+                lock.unlock();
+            }
+        }
     }
 
     /**
@@ -100,5 +99,35 @@ public class ServiceTemplateImpl implements ServiceTemplate {
     @Override
     public CallbackResult executeDistributeLockWithoutTransaction(ServiceCallbackAction action, String lockKey) {
         return null;
+    }
+
+    private CallbackResult executeServiceCallbackAction(final ServiceCallbackAction action){
+        CallbackResult callbackResult = CallbackResult.success();
+        try {
+            //检查入参是否合法
+            callbackResult = action.executeCheck();
+            //入参合法再执行方法内容，否则直接返回参数检查结果
+            if (callbackResult.isSuccess()) {
+                callbackResult = (CallbackResult) this.getTransactionTemplate().execute(new TransactionCallback() {
+                    @Override
+                    public Object doInTransaction(TransactionStatus status) {
+                        CallbackResult result = CallbackResult.success();
+                        try {
+                            result = action.executeAction();
+                            if (result.isFailure()) {
+                                status.setRollbackOnly();
+                            }
+                        } catch (Exception e) {
+                            status.setRollbackOnly();
+                            throw e;
+                        }
+                        return result;
+                    }
+                });
+            }
+        } catch (Exception e) {
+            return CallbackResult.failure(ResultStatusEnum.UNKOWN_SYS_ERROR);
+        }
+        return callbackResult;
     }
 }

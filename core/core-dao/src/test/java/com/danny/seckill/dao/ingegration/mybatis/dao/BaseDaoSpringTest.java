@@ -17,7 +17,7 @@ import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
  * @Created on 2017-02-18 14:42:51
  */
 @RunWith(SpringJUnit4ClassRunner.class)
-@ContextConfiguration(locations = {"classpath:/dal/mybatis/applicationContext-mybatis.xml"})
+@ContextConfiguration(locations = {"classpath:/applicationContext-dao-test.xml"})
 public abstract class BaseDaoSpringTest extends AbstractTransactionalJUnit4SpringContextTests {
     public void fail(Exception e) {
         e.printStackTrace();

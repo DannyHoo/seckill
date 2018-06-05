@@ -12,7 +12,7 @@ import org.springframework.test.context.junit4.AbstractTransactionalJUnit4Spring
  * @Company: lxjr.com
  * @Created on 2018-05-31 17:21:59
  */
-@ContextConfiguration(locations = {"classpath:/spring/applicationContext.xml"})
+@ContextConfiguration(locations = {"classpath:/spring/applicationContext-service-test.xml"})
 public class BaseServiceSpringTest extends AbstractTransactionalJUnit4SpringContextTests {
 
     protected void print(Object object){

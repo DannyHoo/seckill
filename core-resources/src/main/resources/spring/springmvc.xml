@@ -29,6 +29,7 @@
     <mvc:resources location="/WEB-INF/html/css/" mapping="/css/**"/>
     <mvc:resources location="/WEB-INF/html/images/" mapping="/images/**"/>
     <mvc:resources location="/WEB-INF/html/plugins/" mapping="/plugins/**"/>
+    <mvc:resources location="/WEB-INF/html/fonts/" mapping="/fonts/**"/>
 
     <!-- 配置SpringMvc视图解析器: 如何把 handler 方法返回值解析为实际的物理视图 -->
     <!--<bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">

@@ -14,7 +14,7 @@ debug：当此属性设置为true时，将打印出logback内部日志信息，�
     <contextName>seckill</contextName>
 
     <!--通过<property>定义的值会被插入到logger上下文中。定义变量后，可以使“${}”来使用变量。 -->
-    <property resource="/META-INF/app_${envType}.properties"/>
+    <property resource="/resource/app_${envType}.properties"/>
 
     <!-- 把日志输出到控制台 -->
     <appender name="STDOUT" class="ch.qos.logback.core.ConsoleAppender">

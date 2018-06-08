@@ -115,7 +115,7 @@ public class ServiceTemplateImpl implements ServiceTemplate {
                         try {
                             result = action.executeAction();
                             if (result.isFailure()) {
-                                status.setRollbackOnly();
+                                status.setRollbackOnly();//本地Junit调试时，出现异常时会报错，发布到服务器没问题
                             }
                         } catch (Exception e) {
                             status.setRollbackOnly();

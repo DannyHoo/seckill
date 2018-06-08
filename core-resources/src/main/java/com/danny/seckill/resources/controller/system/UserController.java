@@ -5,7 +5,10 @@ import com.danny.seckill.model.bean.system.User;
 import com.danny.seckill.model.param.system.UserParameter;
 import com.danny.seckill.model.result.CommonResult;
 import com.danny.seckill.resources.controller.BaseController;
+import com.danny.seckill.resources.controller.IndexController;
 import com.danny.seckill.service.system.UserService;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -27,11 +30,14 @@ import java.util.Date;
 @Controller
 public class UserController extends BaseController{
 
+    private static final Logger logger = LoggerFactory.getLogger(UserController.class);
+
     @Autowired
     private UserService userService;
 
-    @RequestMapping("/index")
+    @RequestMapping("/save")
     public String index(HttpServletRequest request){
+        logger.info("===========新增用户-controller===========");
         UserParameter userParameter=new UserParameter()
                 .setUsername("xiaobianzi")
                 .setAge(12)

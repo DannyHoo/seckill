@@ -1,4 +1,4 @@
-package com.danny.seckill.framework.log;
+package com.danny.seckill.framework.log.logger;
 
 import org.slf4j.Marker;
 

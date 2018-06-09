@@ -1,5 +1,6 @@
-package com.danny.seckill.framework.log;
+package com.danny.seckill.framework.log.logger;
 
+import org.slf4j.Logger;
 import org.slf4j.Marker;
 
 /**
@@ -12,6 +13,12 @@ import org.slf4j.Marker;
  */
 public class CommonLoggerImpl implements CommonLogger {
 
+    private Logger logger;
+
+    public CommonLoggerImpl setLogger(Logger logger) {
+        this.logger = logger;
+        return this;
+    }
 
     @Override
     public String getName() {

@@ -26,8 +26,8 @@
                     <input type="hidden" name="_csrf" value="=">
                     <div class="control-group">
                         <div class="controls">
-                            <label for="email" class="control-label fa fa-envelope"></label>
-                            <input id="email" type="email" name="email" placeholder="用户名" tabindex="1"
+                            <label for="userName" class="control-label fa fa-user"></label>
+                            <input id="userName" type="text" name="userName" placeholder="用户名" tabindex="1"
                                    autofocus="autofocus" class="form-control input-medium">
                         </div>
                     </div>
@@ -39,15 +39,19 @@
                         </div>
                     </div>
                 </div>
-                <div class="form-actions"><a href="http://www.lanrentuku.com/" tabindex="5"
-                                             class="btn pull-left btn-link text-muted">忘记密码?</a><a
-                        href="http://www.lanrentuku.com/" tabindex="6" class="btn btn-link text-muted">注 册</a>
-                    <button type="submit" tabindex="4" class="btn btn-primary">登 录</button>
+                <div class="form-actions">
+                    <a href="#" tabindex="4"
+                       class="btn pull-left btn-link text-muted">忘记密码?</a>
+                    <a href="/user/register.html" tabindex="5" class="btn btn-link text-muted">注 册</a>
+                    <button id="loginBtn" tabindex="3" class="btn btn-primary">登 录</button>
                 </div>
             </form>
         </div>
     </div>
     <script src="/plugins/jquery/jquery.min.js"></script>
+    <script src="/plugins/layui/lay/modules/layer.js"></script>
+    <script src="/plugins/jsencrypt.min.js"></script>
+    <script src="/js/system/register_login.js"></script>
     <script>
         $(function () {
 

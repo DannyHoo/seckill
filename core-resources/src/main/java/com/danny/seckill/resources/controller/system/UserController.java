@@ -49,7 +49,7 @@ public class UserController extends BaseController {
         String email = getValueFromRequest(request, "email");
         String userName = getValueFromRequest(request, "userName");
         String password = getValueFromRequest(request, "password");
-        if (StringUtil.hasOneEmpty(email,userName, password)) {
+        if (StringUtil.hasOneEmpty(email, userName, password)) {
             return ResponseData.newResponseData(ResultStatusEnum.PARAMETER_IS_NULL);
         }
         UserParameter userParameter = new UserParameter()
@@ -68,16 +68,18 @@ public class UserController extends BaseController {
 
     @RequestMapping("/doLogin")
     @ResponseBody
-    public String doLogin(HttpServletRequest request) {
-        logger.info("===========新增用户-controller===========");
+    public ResponseData doLogin(HttpServletRequest request) {
+        String userName = getValueFromRequest(request, "userName");
+        String password = getValueFromRequest(request, "password");
+        if (StringUtil.hasOneEmpty(userName, password)) {
+            return ResponseData.newResponseData(ResultStatusEnum.PARAMETER_IS_NULL);
+        }
         UserParameter userParameter = new UserParameter()
-                .setUsername("xiaobianzi")
-                .setAge(12)
-                .setAddress("北京市")
-                .setBirthday(new Date())
-                .setEmail("xiaobianzi@126.com");
-        CommonResult<User> userCommonResult = userService.saveUser(userParameter);
-        System.out.println(JSON.toJSONString(userCommonResult));
-        return "system/user";
+                .setUsername(userName).setPassword(password);
+        CommonResult<User> loginResult = userService.login(userParameter);
+        if (loginResult.isSuccess()) {
+            SessionUtils.setUser(request, loginResult.getBusinessObject());
+        }
+        return ResponseData.newResponseData(loginResult);
     }
 }

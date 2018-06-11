@@ -44,12 +44,16 @@ public class UserServiceImpl extends BaseServiceImpl implements UserService {
         CallbackResult callbackResult = this.getServiceTemplate().execute(new ServiceCallbackAction() {
             @Override
             public CallbackResult executeCheck() {
-                return getCheckParameterEmptyResult(userParameter, "username", "password");
+                return getCheckParameterEmptyResult(userParameter, "email","username", "password");
             }
 
             @Override
             public CallbackResult executeAction() {
                 try {
+                    User userFound=userGlue.findByUserName(userParameter.getUsername());
+                    if (userFound!=null){
+                        return getFailureCallbackResult(ResultStatusEnum.USER_ALREADY_EXIST);
+                    }
                     User user=userGlue.register(userParameter);
                     if (user!=null){
                         return getSuccessCallbackResult(user);
@@ -71,8 +75,29 @@ public class UserServiceImpl extends BaseServiceImpl implements UserService {
      * @return
      */
     @Override
-    public CommonResult<User> login(UserParameter userParameter) {
-        return null;
+    public CommonResult<User> login(final UserParameter userParameter) {
+        final String bizAction = "login";
+        CallbackResult callbackResult = this.getServiceTemplate().execute(new ServiceCallbackAction() {
+            @Override
+            public CallbackResult executeCheck() {
+                return getCheckParameterEmptyResult(userParameter, "username", "password");
+            }
+
+            @Override
+            public CallbackResult executeAction() {
+                try {
+                    User user=userGlue.login(userParameter);
+                    if (user!=null){
+                        return getSuccessCallbackResult(user);
+                    }else{
+                        return getFailureCallbackResult(ResultStatusEnum.USERNAME_OR_PASSWORD_INVALID);
+                    }
+                }catch (Exception e){
+                    return getUnknowSystemErrorCallbackResult();
+                }
+            }
+        });
+        return getCommonResult(callbackResult);
     }
 
     @Override

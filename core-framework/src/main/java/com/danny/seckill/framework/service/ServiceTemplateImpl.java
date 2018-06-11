@@ -126,7 +126,9 @@ public class ServiceTemplateImpl implements ServiceTemplate {
                 });
             }
         } catch (Exception e) {
-            return CallbackResult.failure(ResultStatusEnum.UNKOWN_SYS_ERROR);
+            if(callbackResult.getResultStatus()==null){
+                callbackResult.setResultStatus(ResultStatusEnum.UNKOWN_SYS_ERROR);
+            }
         }
         return callbackResult;
     }

@@ -1,5 +1,6 @@
 package com.danny.seckill.domain.business.system;
 
+import com.danny.seckill.framework.util.RSAUtil;
 import org.apache.xerces.impl.dv.util.Base64;
 import org.springframework.stereotype.Component;
 
@@ -18,5 +19,17 @@ import java.util.HashMap;
 @Component
 public class UserBusiness {
 
+    /**
+     * 用私钥解密经过RSA加密后的密码
+     *
+     * @param password
+     * @param privateKey
+     * @return
+     * @throws Exception
+     */
+    public String decryptPassword(String password, String privateKey) throws Exception {
+        String decryptedPassword = RSAUtil.decrypt(RSAUtil.loadPrivateKey(privateKey), RSAUtil.strToBase64(password));
+        return decryptedPassword;
+    }
 
 }

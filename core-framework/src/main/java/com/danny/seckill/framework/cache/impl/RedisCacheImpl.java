@@ -1,4 +1,6 @@
-package com.danny.seckill.framework.cache;
+package com.danny.seckill.framework.cache.impl;
+
+import com.danny.seckill.framework.cache.Cache;
 
 /**
  * @author huyuyang@lxfintech.com
@@ -8,7 +10,7 @@ package com.danny.seckill.framework.cache;
  * @Company: lxjr.com
  * @Created on 2018-06-11 10:53:06
  */
-public class RedisCacheImpl implements Cache{
+public class RedisCacheImpl implements Cache {
 
     @Override
     public <K, V> V put(K key, V Value) {

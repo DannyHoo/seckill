@@ -8,7 +8,7 @@
 </head>
 
 <body>
-<h1 align="center">Welcome To </h1>
+<h1 align="center">Welcome</h1>
 <!-- 代码 开始 -->
 <div id="login">
     <div class="wrapper">
@@ -27,27 +27,38 @@
                     <div class="control-group">
                         <div class="controls">
                             <label for="email" class="control-label fa fa-envelope"></label>
-                            <input id="email" type="email" name="email" placeholder="Email" tabindex="1"
+                            <input id="email" type="email" name="email" placeholder="邮箱" tabindex="1"
+                                   autofocus="autofocus" class="form-control input-medium">
+                        </div>
+                    </div>
+                    <div class="control-group">
+                        <div class="controls">
+                            <label for="userName" class="control-label fa fa-user"></label>
+                            <input id="userName" type="text" name="userName" placeholder="用户名" tabindex="2"
                                    autofocus="autofocus" class="form-control input-medium">
                         </div>
                     </div>
                     <div class="control-group">
                         <div class="controls">
                             <label for="password" class="control-label fa fa-asterisk"></label>
-                            <input id="password" type="password" name="password" placeholder="Password" tabindex="2"
+                            <input id="password" type="password" name="password" placeholder="密码" tabindex="3"
                                    class="form-control input-medium">
                         </div>
                     </div>
                 </div>
-                <div class="form-actions"><a href="http://www.lanrentuku.com/" tabindex="5"
-                                             class="btn pull-left btn-link text-muted">忘记密码?</a><a
-                        href="http://www.lanrentuku.com/" tabindex="6" class="btn btn-link text-muted">注 册</a>
-                    <button type="submit" tabindex="4" class="btn btn-primary">登 录</button>
+                <div class="form-actions">
+                    <a href="http://www.lanrentuku.com/" tabindex="5"
+                       class="btn pull-left btn-link text-muted">忘记密码?</a>
+                    <a href="http://www.lanrentuku.com/" tabindex="6" class="btn btn-link text-muted">登 录</a>
+                    <button id="registerBtn" tabindex="4" class="btn btn-primary">注 册</button>
                 </div>
             </form>
         </div>
     </div>
     <script src="/plugins/jquery/jquery.min.js"></script>
+    <script src="/plugins/layui/lay/modules/layer.js"></script>
+    <script src="/plugins/jsencrypt.min.js"></script>
+    <script src="/js/system/register.js"></script>
     <script>
         $(function () {
 

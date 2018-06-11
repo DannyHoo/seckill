@@ -78,13 +78,13 @@ public class ServiceTemplateImpl implements ServiceTemplate {
     public CallbackResult executeDistributeLock(ServiceCallbackAction action, String lockKey) {
         Lock lock = null;
         try {
-            lock=this.getLockService().getDistributeLock(lockKey);
+            lock = this.getLockService().getDistributeLock(lockKey);
             lock.lockInterruptibly();
             return executeServiceCallbackAction(action);
-        }catch (Exception e){
+        } catch (Exception e) {
             return CallbackResult.failure(ResultStatusEnum.UNKOWN_SYS_ERROR);
-        }finally {
-            if (lock!=null){
+        } finally {
+            if (lock != null) {
                 lock.unlock();
             }
         }
@@ -101,7 +101,7 @@ public class ServiceTemplateImpl implements ServiceTemplate {
         return null;
     }
 
-    private CallbackResult executeServiceCallbackAction(final ServiceCallbackAction action){
+    private CallbackResult executeServiceCallbackAction(final ServiceCallbackAction action) {
         CallbackResult callbackResult = CallbackResult.success();
         try {
             //检查入参是否合法

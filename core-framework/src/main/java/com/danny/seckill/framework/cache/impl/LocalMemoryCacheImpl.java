@@ -1,4 +1,6 @@
-package com.danny.seckill.framework.cache;
+package com.danny.seckill.framework.cache.impl;
+
+import com.danny.seckill.framework.cache.Cache;
 
 import java.util.HashMap;
 import java.util.Map;

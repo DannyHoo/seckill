@@ -1,5 +1,8 @@
 package com.danny.seckill.framework.cache;
 
+import com.danny.seckill.framework.cache.enums.CacheTypeEnum;
+import com.danny.seckill.framework.cache.impl.LocalMemoryCacheImpl;
+
 /**
  * @author huyuyang@lxfintech.com
  * @Title: CacheFactory

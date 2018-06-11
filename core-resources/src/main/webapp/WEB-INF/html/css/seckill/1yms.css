@@ -36,7 +36,7 @@ body{ margin:0; padding:0;font-family:"微软雅黑"}
 
 
 
-.ms_floor1,.ms_floor2{ margin-bottom:40px; margin-top:80px;}
+.ms_floor1,.ms_floor2{ margin-bottom:20px; margin-top:10px;}
 .ms_floor2_title{}
 .floo2_ul{ margin:0; padding:0; }
 .floo2_ul li { width:570px; float:left; list-style-type:none;background-color:#ffffff;height:535px; border:1px solid #dcdcdc; margin-bottom:20px;}

@@ -18,7 +18,11 @@ public enum ResultStatusEnum implements ResultStatusEnumInterface {
     //业务失败情况
     FAILURE(100001, "服务器正忙,请稍后重试"),
     //系统出现异常情况
-    UNKOWN_SYS_ERROR(100002, "服务器正忙,请稍后重试"),;
+    UNKOWN_SYS_ERROR(100002, "服务器正忙,请稍后重试"),
+    //必须的参数为空
+    PARAMETER_IS_NULL(100003,"参数为空"),
+
+    ;
 
     private int code;
     private String description;

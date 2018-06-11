@@ -10,8 +10,14 @@
         http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-2.5.xsd http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop.xsd"
         default-lazy-init="false"> <!--default-autowire="byName"-->
 
-    <context:property-placeholder
-            location="classpath:/resource/app_${envType}.properties"/>
+    <!--<context:property-placeholder location="classpath:/resource/app_${envType}.properties"/>-->
+    <bean id="propertyConfigurer" class="com.danny.seckill.framework.core.PropertyPlaceholder">
+        <property name="locations">
+            <list>
+                <value>classpath:/resource/app_${envType}.properties</value>
+            </list>
+        </property>
+    </bean>
 
     <import resource="classpath:/dal/mybatis/applicationContext-mybatis.xml"/>
 

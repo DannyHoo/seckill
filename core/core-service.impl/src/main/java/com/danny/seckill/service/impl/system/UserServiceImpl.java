@@ -32,6 +32,49 @@ public class UserServiceImpl extends BaseServiceImpl implements UserService {
     @Autowired
     private TransactionTemplate transactionTemplate;
 
+    /**
+     * 用户注册
+     *
+     * @param userParameter
+     * @return
+     */
+    @Override
+    public CommonResult<User> register(final UserParameter userParameter) {
+        final String bizAction = "register";
+        CallbackResult callbackResult = this.getServiceTemplate().execute(new ServiceCallbackAction() {
+            @Override
+            public CallbackResult executeCheck() {
+                return getCheckParameterEmptyResult(userParameter, "username", "password");
+            }
+
+            @Override
+            public CallbackResult executeAction() {
+                try {
+                    User user=userGlue.register(userParameter);
+                    if (user!=null){
+                        return getSuccessCallbackResult(user);
+                    }else{
+                        return getFailureCallbackResult();
+                    }
+                }catch (Exception e){
+                    return getUnknowSystemErrorCallbackResult();
+                }
+            }
+        });
+        return getCommonResult(callbackResult);
+    }
+
+    /**
+     * 用户登录
+     *
+     * @param userParameter
+     * @return
+     */
+    @Override
+    public CommonResult<User> login(UserParameter userParameter) {
+        return null;
+    }
+
     @Override
     public CommonResult<User> findByUserName(final UserParameter userParameter) {
         final String bizAction = "findByUserName";
@@ -81,4 +124,5 @@ public class UserServiceImpl extends BaseServiceImpl implements UserService {
         User userFound = userGlue.findByUserName(userParameter.getUsername());
         return null;
     }
+
 }

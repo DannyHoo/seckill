@@ -1,4 +1,4 @@
-package com.danny.seckill.framework.cache;
+package com.danny.seckill.framework.cache.enums;
 
 /**
  * @author huyuyang@lxfintech.com
@@ -10,7 +10,7 @@ package com.danny.seckill.framework.cache;
  */
 public enum CacheTypeEnum {
 
-    LOCAL_MEMORY_CACHE("LocalMemoryCache","com.danny.seckill.framework.cache.LocalMemoryCacheImpl"),
+    LOCAL_MEMORY_CACHE("LocalMemoryCache","com.danny.seckill.framework.cache.impl.LocalMemoryCacheImpl"),
             ;
 
     private String cacheName;

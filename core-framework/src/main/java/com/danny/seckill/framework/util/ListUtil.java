@@ -1,4 +1,4 @@
-package com.danny.seckill.framework.util.collection;
+package com.danny.seckill.framework.util;
 
 import java.util.List;
 

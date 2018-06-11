@@ -1,6 +1,8 @@
 package com.danny.seckill.resources.controller.system;
 
 import com.alibaba.fastjson.JSON;
+import com.danny.seckill.framework.cache.Cache;
+import com.danny.seckill.framework.cache.CacheFactory;
 import com.danny.seckill.model.bean.system.User;
 import com.danny.seckill.model.param.system.UserParameter;
 import com.danny.seckill.model.result.CommonResult;
@@ -17,6 +19,7 @@ import javax.servlet.http.HttpServletRequest;
 import java.awt.*;
 import java.lang.reflect.InvocationTargetException;
 import java.util.Date;
+import java.util.concurrent.ConcurrentHashMap;
 
 /**
  * @author huyuyang@lxfintech.com

@@ -38,6 +38,7 @@
         <!-- <property name="timeout" value="30"/> -->
     </bean>
 
+    <!-- Spring声明式事务 -->
     <!--
     <tx:advice id="userTxAdvice" transaction-manager="jdbcTransactionManager">
         <tx:attributes>
@@ -65,4 +66,15 @@
     &lt;!&ndash; 使用annotation注解方式配置事务 &ndash;&gt;
     <tx:annotation-driven transaction-manager="jdbcTransactionManager" />-->
 
+    <!-- AOP日志配置 -->
+    <aop:config>
+        <aop:aspect id="xxLogTraceAspect" ref="logTraceAspect">
+            <aop:pointcut id="logPointcut" expression="execution(* com.danny.seckill.service..*.*(..))"></aop:pointcut>
+            <aop:around method="logTrace" pointcut-ref="logPointcut"></aop:around>
+        </aop:aspect>
+    </aop:config>
+
+    <bean id="logTraceAspect" class="com.danny.seckill.framework.log.trace.LogTraceAspect">
+
+    </bean>
 </beans>

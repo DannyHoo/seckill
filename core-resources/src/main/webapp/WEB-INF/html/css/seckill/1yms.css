@@ -4,7 +4,7 @@
 body{ margin:0; padding:0;font-family:"微软雅黑"}
 
 .back_1yms{padding-bottom:20px;}
-.title_1yms{ background:url(../images/title_1y.png) no-repeat scroll top center ; width:100%; max-width:1920px; height:283px;}
+.title_1yms{ background:url(/images/seckill/title_1y.png) no-repeat scroll top center ; width:100%; max-width:1920px; height:283px;}
 .body_1yms{ width:1200px; margin:auto;}
 
 

@@ -3,7 +3,7 @@ package com.danny.seckill.framework.util;
 import java.security.MessageDigest;
 
 /**
- * @author huyuyang@lxfintech.com
+ * @author dannyhoo
  * @Title: MD5Util
  * @Copyright: Copyright (c) 2016
  * @Description:

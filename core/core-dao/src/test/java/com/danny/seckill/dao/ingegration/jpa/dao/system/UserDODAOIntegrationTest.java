@@ -12,7 +12,7 @@ import org.springframework.test.annotation.Rollback;
 import java.util.Date;
 
 /**
- * @author huyuyang@lxfintech.com
+ * @author dannyhoo
  * @Title: UserDODAOIntegrationTest
  * @Copyright: Copyright (c) 2016
  * @Description:

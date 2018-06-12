@@ -5,7 +5,7 @@ import com.danny.seckill.model.param.BaseParameter;
 import java.util.Date;
 
 /**
- * @author huyuyang@lxfintech.com
+ * @author dannyhoo
  * @Title: UserParameter
  * @Copyright: Copyright (c) 2016
  * @Description:

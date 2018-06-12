@@ -4,7 +4,7 @@ import java.io.Serializable;
 import java.util.Date;
 
 /**
- * @author huyuyang@lxfintech.com
+ * @author dannyhoo
  * @Title: BaseDO
  * @Copyright: Copyright (c) 2016
  * @Description:

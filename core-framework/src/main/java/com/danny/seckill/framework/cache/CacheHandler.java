@@ -3,7 +3,7 @@ package com.danny.seckill.framework.cache;
 import com.danny.seckill.framework.cache.enums.CacheTypeEnum;
 
 /**
- * @author huyuyang@lxfintech.com
+ * @author dannyhoo
  * @Title: CacheHandler
  * @Copyright: Copyright (c) 2016
  * @Description:

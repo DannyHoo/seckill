@@ -22,7 +22,7 @@ import javax.servlet.http.HttpServletRequestWrapper;
 import java.util.Date;
 
 /**
- * @author huyuyang@lxfintech.com
+ * @author dannyhoo
  * @Title: UserController
  * @Copyright: Copyright (c) 2016
  * @Description:
@@ -61,6 +61,13 @@ public class UserController extends BaseController {
         return ResponseData.newResponseData(loginResult);
     }
 
+    public static void main(String[] args) {
+        char cha[] = {'a','2','3','f'};
+        if (cha instanceof char[]){
+            System.out.println(cha.getClass());
+
+        }
+    }
     @RequestMapping("/login")
     public String login() {
         return "system/login";

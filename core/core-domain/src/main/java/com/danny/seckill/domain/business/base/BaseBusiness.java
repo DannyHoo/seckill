@@ -1,7 +1,7 @@
 package com.danny.seckill.domain.business.base;
 
 /**
- * @author huyuyang@lxfintech.com
+ * @author dannyhoo
  * @Title: BaseBusiness
  * @Copyright: Copyright (c) 2016
  * @Description:

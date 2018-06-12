@@ -1,7 +1,7 @@
 package com.danny.seckill.framework.cache;
 
 /**
- * @author huyuyang@lxfintech.com
+ * @author dannyhoo
  * @Title: Cache
  * @Copyright: Copyright (c) 2016
  * @Description:

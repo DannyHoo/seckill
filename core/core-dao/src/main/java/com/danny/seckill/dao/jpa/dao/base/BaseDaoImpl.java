@@ -8,7 +8,7 @@ import javax.persistence.EntityManager;
 import java.util.List;
 
 /**
- * @author huyuyang@lxfintech.com
+ * @author dannyhoo
  * @Title: BaseDaoImpl
  * @Copyright: Copyright (c) 2016
  * @Description:

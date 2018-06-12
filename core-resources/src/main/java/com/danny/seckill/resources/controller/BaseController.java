@@ -3,7 +3,7 @@ package com.danny.seckill.resources.controller;
 import javax.servlet.http.HttpServletRequest;
 
 /**
- * @author huyuyang@lxfintech.com
+ * @author dannyhoo
  * @Title: BaseController
  * @Copyright: Copyright (c) 2016
  * @Description:

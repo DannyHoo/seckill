@@ -1,7 +1,7 @@
 package com.danny.seckill.framework.cache.enums;
 
 /**
- * @author huyuyang@lxfintech.com
+ * @author dannyhoo
  * @Title: CacheTypeEnum
  * @Copyright: Copyright (c) 2016
  * @Description:

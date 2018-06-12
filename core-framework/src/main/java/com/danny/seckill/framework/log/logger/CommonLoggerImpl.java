@@ -4,7 +4,7 @@ import org.slf4j.Logger;
 import org.slf4j.Marker;
 
 /**
- * @author huyuyang@lxfintech.com
+ * @author dannyhoo
  * @Title: CommonLoggerImpl
  * @Copyright: Copyright (c) 2016
  * @Description:
@@ -152,7 +152,7 @@ public class CommonLoggerImpl implements CommonLogger {
 
     @Override
     public void info(String msg) {
-
+        logger.info(msg);
     }
 
     @Override

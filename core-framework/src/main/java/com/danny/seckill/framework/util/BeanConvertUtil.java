@@ -12,7 +12,7 @@ import java.util.List;
 import java.util.Set;
 
 /**
- * @author huyuyang@lxfintech.com
+ * @author dannyhoo
  * @Title: BeanConvertUtil
  * @Copyright: Copyright (c) 2016
  * @Description:

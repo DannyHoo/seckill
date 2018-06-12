@@ -16,7 +16,7 @@ import org.springframework.stereotype.Component;
 import java.util.List;
 
 /**
- * @author huyuyang@lxfintech.com
+ * @author dannyhoo
  * @Title: UserGlue
  * @Copyright: Copyright (c) 2016
  * @Description:

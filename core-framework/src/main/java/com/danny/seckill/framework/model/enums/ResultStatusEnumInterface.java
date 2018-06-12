@@ -1,7 +1,7 @@
 package com.danny.seckill.framework.model.enums;
 
 /**
- * @author huyuyang@lxfintech.com
+ * @author dannyhoo
  * @Title: ResultStatusEnumInterface
  * @Copyright: Copyright (c) 2016
  * @Description:

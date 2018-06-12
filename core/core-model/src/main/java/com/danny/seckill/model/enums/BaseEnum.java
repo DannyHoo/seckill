@@ -1,7 +1,7 @@
 package com.danny.seckill.model.enums;
 
 /**
- * @author huyuyang@lxfintech.com
+ * @author dannyhoo
  * @Title: BaseEnum
  * @Copyright: Copyright (c) 2016
  * @Description:

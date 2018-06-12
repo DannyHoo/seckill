@@ -10,7 +10,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.test.annotation.Rollback;
 
 /**
- * @author huyuyang@lxfintech.com
+ * @author dannyhoo
  * @Title: UserDODAOIntegrationTest
  * @Copyright: Copyright (c) 2016
  * @Description:

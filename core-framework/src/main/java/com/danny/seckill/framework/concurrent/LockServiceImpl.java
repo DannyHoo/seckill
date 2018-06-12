@@ -3,7 +3,7 @@ package com.danny.seckill.framework.concurrent;
 import java.util.concurrent.locks.Lock;
 
 /**
- * @author huyuyang@lxfintech.com
+ * @author dannyhoo
  * @Title: LockServiceImpl
  * @Copyright: Copyright (c) 2016
  * @Description:

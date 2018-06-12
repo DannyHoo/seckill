@@ -6,7 +6,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
 /**
- * @author huyuyang@lxfintech.com
+ * @author dannyhoo
  * @Title: SessionUtils
  * @Copyright: Copyright (c) 2016
  * @Description:

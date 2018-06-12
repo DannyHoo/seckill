@@ -12,7 +12,7 @@ import org.springframework.transaction.support.TransactionTemplate;
 import java.util.concurrent.locks.Lock;
 
 /**
- * @author huyuyang@lxfintech.com
+ * @author dannyhoo
  * @Title: ServiceTemplateImpl
  * @Copyright: Copyright (c) 2016
  * @Description:

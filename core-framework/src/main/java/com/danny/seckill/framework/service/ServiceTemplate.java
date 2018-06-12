@@ -1,7 +1,7 @@
 package com.danny.seckill.framework.service;
 
 /**
- * @author huyuyang@lxfintech.com
+ * @author dannyhoo
  * @Title: ServiceTemplate
  * @Copyright: Copyright (c) 2016
  * @Description: service模板

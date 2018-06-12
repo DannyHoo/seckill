@@ -9,7 +9,7 @@ import java.io.ObjectInput;
 import java.io.ObjectOutput;
 
 /**
- * @author huyuyang@lxfintech.com
+ * @author dannyhoo
  * @Title: CommonResult
  * @Copyright: Copyright (c) 2016
  * @Description:

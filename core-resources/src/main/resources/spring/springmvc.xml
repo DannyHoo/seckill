@@ -25,6 +25,7 @@
     <mvc:annotation-driven/>
 
     <!--配置静态资源，mapping为访问地址 -->
+    <mvc:resources location="/WEB-INF/html/images/favicon.ico" mapping="/favicon.ico"/>
     <mvc:resources location="/WEB-INF/html/js/" mapping="/js/**"/>
     <mvc:resources location="/WEB-INF/html/css/" mapping="/css/**"/>
     <mvc:resources location="/WEB-INF/html/images/" mapping="/images/**"/>
@@ -89,4 +90,13 @@
         <!-- 设定文件上传的最大值50MB，50*1024*1024 -->
         <property name="maxUploadSize" value="52428800"></property>
     </bean>
+
+    <!-- AOP -->
+    <mvc:interceptors>
+        <!--日志跟踪拦截-->
+        <mvc:interceptor>
+            <mvc:mapping path="/**" />
+            <bean class="com.danny.seckill.resources.aop.LogInterceptor"></bean>
+        </mvc:interceptor>
+    </mvc:interceptors>
 </beans>

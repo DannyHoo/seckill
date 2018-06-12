@@ -4,7 +4,7 @@ import com.danny.seckill.framework.cache.enums.CacheTypeEnum;
 import com.danny.seckill.framework.cache.impl.LocalMemoryCacheImpl;
 
 /**
- * @author huyuyang@lxfintech.com
+ * @author dannyhoo
  * @Title: CacheFactory
  * @Copyright: Copyright (c) 2016
  * @Description:

@@ -11,7 +11,7 @@ import javax.persistence.EntityManager;
 import java.io.Serializable;
 
 /**
- * @author huyuyang@lxfintech.com
+ * @author dannyhoo
  * @Title: BaseDaoRepositoryFactoryBean
  * @Copyright: Copyright (c) 2016
  * @Description:

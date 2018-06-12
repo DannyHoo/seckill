@@ -3,9 +3,10 @@ package com.danny.seckill.framework.util;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.Random;
+import java.util.UUID;
 
 /**
- * @author huyuyang@lxfintech.com
+ * @author dannyhoo
  * @Title: StringUtil
  * @Copyright: Copyright (c) 2016
  * @Description:
@@ -34,6 +35,17 @@ public class StringUtil {
         return false;
     }
 
+    /**
+     * 获得一个UUID
+     *
+     * @return String UUID
+     */
+    public static String getUUID() {
+        String s = UUID.randomUUID().toString();
+        // 去掉"-"符号
+        return s.substring(0, 8) + s.substring(9, 13) + s.substring(14, 18)
+                + s.substring(19, 23) + s.substring(24);
+    }
 
     /**
      * 按当前时间随机生成数字字符串+3位随机数

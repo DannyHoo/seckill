@@ -9,7 +9,7 @@ import java.util.Map;
 import java.util.Properties;
 
 /**
- * @author huyuyang@lxfintech.com
+ * @author dannyhoo
  * @Title: PropertyPlaceholder
  * @Copyright: Copyright (c) 2016
  * @Description:

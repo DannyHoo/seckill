@@ -15,5 +15,14 @@
 7、支持分布式锁（service层封装framework-service）
 
 
+# 项目启动参数整理
+
+1、项目启动环境
+
+```-DenvType=dev/test/online ```
+
+2、是否在控制台打印日志
+  
+```-DisOpenSystemOutLog=true/false ```
 
 

@@ -4,7 +4,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 /**
- * @author huyuyang@lxfintech.com
+ * @author dannyhoo
  * @Title: CommonLoggerFactory
  * @Copyright: Copyright (c) 2016
  * @Description:
@@ -21,6 +21,9 @@ public class CommonLoggerFactory {
     }
 
     public static CommonLogger getLogger(Class<?> clazz) {
-        return getLogger(clazz.getName());
+        Logger logger = LoggerFactory.getLogger(clazz);
+        CommonLoggerImpl loggerImpl = new CommonLoggerImpl();
+        loggerImpl.setLogger(logger);
+        return loggerImpl;
     }
 }

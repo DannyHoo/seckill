@@ -10,7 +10,7 @@ import java.util.concurrent.locks.Lock;
 import java.util.concurrent.locks.ReentrantLock;
 
 /**
- * @author huyuyang@lxfintech.com
+ * @author dannyhoo
  * @Title: LocalMemoryCacheImpl
  * @Copyright: Copyright (c) 2016
  * @Description: 本地内存缓存

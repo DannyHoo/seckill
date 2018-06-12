@@ -3,7 +3,7 @@ package com.danny.seckill.framework.cache.impl;
 import com.danny.seckill.framework.cache.Cache;
 
 /**
- * @author huyuyang@lxfintech.com
+ * @author dannyhoo
  * @Title: RedisCacheImpl
  * @Copyright: Copyright (c) 2016
  * @Description:

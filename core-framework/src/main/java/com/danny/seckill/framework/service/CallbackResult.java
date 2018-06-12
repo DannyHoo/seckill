@@ -4,7 +4,7 @@ import com.danny.seckill.framework.model.enums.ResultStatusEnum;
 import com.danny.seckill.framework.model.enums.ResultStatusEnumInterface;
 
 /**
- * @author huyuyang@lxfintech.com
+ * @author dannyhoo
  * @Title: CallbackResult
  * @Copyright: Copyright (c) 2016
  * @Description:

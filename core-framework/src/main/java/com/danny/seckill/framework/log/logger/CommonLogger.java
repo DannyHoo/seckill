@@ -3,7 +3,7 @@ package com.danny.seckill.framework.log.logger;
 import org.slf4j.Marker;
 
 /**
- * @author huyuyang@lxfintech.com
+ * @author dannyhoo
  * @Title: CommonLogger
  * @Copyright: Copyright (c) 2016
  * @Description:

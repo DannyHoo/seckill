@@ -4,7 +4,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 /**
- * @author huyuyang@lxfintech.com
+ * @author dannyhoo
  * @Title: ResultStatusEnum
  * @Copyright: Copyright (c) 2016
  * @Description:

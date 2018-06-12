@@ -1,387 +1,428 @@
-<%@ page language="java" contentType="text/html; charset=utf-8"
-	pageEncoding="utf-8"%>
-	<%
-	String path = request.getContextPath();
-	String basePath = request.getScheme() + "://"
-			+ request.getServerName() + ":" + request.getServerPort()
-			+ path + "/";
-%>
-<!DOCTYPE html>
-<html>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN""http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
 <head>
- <title>订单处理__湖北民院校园购物网</title>
- <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
- <meta name="description" content=""/>
- <meta name="format-detection" content="telephone=no" />
- <meta name=""/>
- 
-<link rel="stylesheet" href="<%=basePath%>css/tasp.css" />
-<link href="<%=basePath%>css/orderconfirm.css" rel="stylesheet" />
-
-<style>
-#page{width:auto;}
-#comm-header-inner,#content{width:950px;margin:auto;}
-#logo{padding-top:26px;padding-bottom:12px;}
-#header .wrap-box{margin-top:-67px;}
-#logo .logo{position:relative;overflow:hidden;display:inline-block;width:140px;height:35px;font-size:35px;line-height:35px;color:#f40;}
-#logo .logo .i{position:absolute;width:140px;height:35px;top:0;left:0;background:url(http://a.tbcdn.cn/tbsp/img/header/logo.png);}
-</style>
-
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <title>丹尼超市</title>
+    <link href="/css/seckill/order/public.css" type="text/css" rel="stylesheet"/>
+    <link rel="stylesheet" type="text/css" href="/css/seckill/order/base.css"/>
+    <script type="text/javascript" src="/js/seckill/order/jquery_cart.js"></script>
+    <link rel="stylesheet" type="text/css" href="/css/seckill/order/checkOut.css"/>
 </head>
-<body data-spm="1">
 
+<body>
 
-<div id="page">
+<!--收货地址body部分开始-->
+<div class="border_top_cart">
+    <script type="text/javascript">
+        var checkoutConfig = {
+            addressMatch: 'common',
+            addressMatchVarName: 'data',
+            hasPresales: false,
+            hasBigTv: false,
+            hasAir: false,
+            hasScales: false,
+            hasGiftcard: false,
+            totalPrice: 244.00,
+            postage: 10,//运费
+            postFree: true,//活动是否免邮了
+            bcPrice: 150,//计算界值
+            activityDiscountMoney: 0.00,//活动优惠
+            showCouponBox: 0,
+            invoice: {
+                NA: "0",
+                personal: "1",
+                company: "2",
+                electronic: "4"
+            }
+        };
+        var miniCartDisable = true;
+    </script>
+    <div class="container">
+        <div class="checkout-box">
+            <form id="checkoutForm" action="#" method="post">
+                <div class="checkout-box-bd">
+                    <!-- 地址状态 0：默认选择；1：新增地址；2：修改地址 -->
+                    <input type="hidden" name="Checkout[addressState]" id="addrState" value="0">
+                    <!-- 收货地址 -->
+                    <div class="xm-box">
+                        <div class="box-hd ">
+                            <h2 class="title">收货地址</h2>
+                            <!---->
+                        </div>
+                        <div class="box-bd">
+                            <div class="clearfix xm-address-list" id="checkoutAddrList">
+                                <dl class="item">
+                                    <dt>
+                                        <strong class="itemConsignee">潘骏杰</strong>
+                                        <span class="itemTag tag">家</span>
+                                    </dt>
+                                    <dd>
+                                        <p class="tel itemTel">15961726437</p>
+                                        <p class="itemRegion">江苏 无锡市 北塘区</p>
+                                        <p class="itemStreet">民丰西苑82号202室(214045)</p>
+                                        <span class="edit-btn J_editAddr">编辑</span>
+                                    </dd>
+                                    <dd style="display:none">
+                                        <input type="radio" name="Checkout[address]" class="addressId"
+                                               value="10140916720030323">
+                                    </dd>
+                                </dl>
+                                <div class="item use-new-addr" id="J_useNewAddr" data-state="off">
+                                    <span class="iconfont icon-add"><img
+                                            src="/images/seckill/order/add_cart.png"/></span>
+                                    使用新地址
+                                </div>
+                            </div>
+                            <input type="hidden" name="newAddress[type]" id="newType" value="common">
+                            <input type="hidden" name="newAddress[consignee]" id="newConsignee">
+                            <input type="hidden" name="newAddress[province]" id="newProvince">
+                            <input type="hidden" name="newAddress[city]" id="newCity">
+                            <input type="hidden" name="newAddress[district]" id="newCounty">
+                            <input type="hidden" name="newAddress[address]" id="newStreet">
+                            <input type="hidden" name="newAddress[zipcode]" id="newZipcode">
+                            <input type="hidden" name="newAddress[tel]" id="newTel">
+                            <input type="hidden" name="newAddress[tag_name]" id="newTag">
+                            <!--点击弹出新增/收货地址界面start-->
+                            <div class="xm-edit-addr-box" id="J_editAddrBox">
+                                <div class="bd">
+                                    <div class="item">
+                                        <label>收货人姓名<span>*</span></label>
+                                        <input type="text" name="userAddress[consignee]" id="Consignee" class="input"
+                                               placeholder="收货人姓名" maxlength="15" autocomplete='off'>
+                                        <p class="tip-msg tipMsg"></p>
+                                    </div>
+                                    <div class="item">
+                                        <label>联系电话<span>*</span></label>
+                                        <input type="text" name="userAddress[tel]" class="input" id="Telephone"
+                                               placeholder="11位手机号" autocomplete='off'>
+                                        <p class="tel-modify-tip" id="telModifyTip"></p>
+                                        <p class="tip-msg tipMsg"></p>
+                                    </div>
+                                    <div class="item">
+                                        <label>地址<span>*</span></label>
+                                        <select name="userAddress[province]" id="Provinces" class="select-1">
+                                            <option>省份/自治区</option>
+                                        </select>
+                                        <select name="userAddress[city]" id="Citys" class="select-2" disabled>
+                                            <option>城市/地区/自治州</option>
+                                        </select>
+                                        <select name="userAddress[county]" id="Countys" class="select-3" disabled>
+                                            <option>区/县</option>
+                                        </select>
+                                        <textarea name="userAddress[street]" class="input-area" id="Street"
+                                                  placeholder="路名或街道地址，门牌号"></textarea>
+                                        <p class="tip-msg tipMsg"></p>
+                                    </div>
+                                    <div class="item">
+                                        <label>邮政编码<span>*</span></label>
+                                        <input type="text" name="userAddress[zipcode]" id="Zipcode" class="input"
+                                               placeholder="邮政编码" autocomplete='off'>
+                                        <p class="zipcode-tip" id="zipcodeTip"></p>
+                                        <p class="tip-msg tipMsg"></p>
+                                    </div>
+                                    <div class="item">
+                                        <label>地址标签<span>*</span></label>
+                                        <input type="text" name="userAddress[tag]" id="Tag" class="input"
+                                               placeholder='地址标签：如"家"、"公司"。限5个字内'>
+                                        <p class="tip-msg tipMsg"></p>
+                                    </div>
+                                </div>
+                                <div class="ft clearfix">
+                                    <button type="button" class="btn btn-lineDake btn-small " id="J_editAddrCancel">取消
+                                    </button>
+                                    <button type="button" class="btn btn-primary  btn-small " id="J_editAddrOk">保存
+                                    </button>
+                                </div>
+                            </div>
+                            <!--点击弹出新增/收货地址界面end-->
+                            <div class="xm-edit-addr-backdrop" id="J_editAddrBackdrop"></div>
+                        </div>
+                    </div>
+                    <!-- 收货地址 END-->
+                    <div id="checkoutPayment">
+                        <!-- 支付方式 -->
+                        <div class="xm-box">
+                            <div class="box-hd ">
+                                <h2 class="title">支付方式</h2>
+                            </div>
+                            <div class="box-bd">
+                                <ul id="checkoutPaymentList" class="checkout-option-list clearfix J_optionList">
+                                    <li class="item selected">
+                                        <input type="radio" name="Checkout[pay_id]" checked="checked" value="1">
+                                        <p>
+                                            在线支付 <span></span>
+                                        </p>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                        <!-- 支付方式 END-->
+                        <div class="xm-box">
+                            <div class="box-hd ">
+                                <h2 class="title">配送方式</h2>
+                            </div>
+                            <div class="box-bd">
+                                <ul id="checkoutShipmentList" class="checkout-option-list clearfix J_optionList">
+                                    <li class="item selected">
+                                        <input type="radio" data-price="0" name="Checkout[shipment_id]"
+                                               checked="checked" value="1">
+                                        <p>
+                                            快递配送（免运费） <span></span>
+                                        </p>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                        <!-- 配送方式 END-->                    <!-- 配送方式 END-->
+                    </div>
+                    <!-- 送货时间 -->
+                    <div class="xm-box">
+                        <div class="box-hd">
+                            <h2 class="title">送货时间</h2>
+                        </div>
+                        <div class="box-bd">
+                            <ul class="checkout-option-list clearfix J_optionList">
+                                <li class="item selected"><input type="radio" checked="checked"
+                                                                 name="Checkout[best_time]" value="1">
+                                    <p>不限送货时间<span>周一至周日</span></p></li>
+                                <li class="item "><input type="radio" name="Checkout[best_time]" value="2">
+                                    <p>工作日送货<span>周一至周五</span></p></li>
+                                <li class="item "><input type="radio" name="Checkout[best_time]" value="3">
+                                    <p>双休日、假日送货<span>周六至周日</span></p></li>
+                            </ul>
+                        </div>
+                    </div>
+                    <!-- 送货时间 END-->
+                    <!-- 发票信息 -->
+                    <div id="checkoutInvoice">
+                        <div class="xm-box">
+                            <div class="box-hd">
+                                <h2 class="title">发票信息</h2>
+                            </div>
+                            <div class="box-bd">
+                                <ul class="checkout-option-list checkout-option-invoice clearfix J_optionList J_optionInvoice">
+                                    <li class="hide">
+                                        电子个人发票4
+                                    </li>
+                                    <li class="item selected">
+                                        <!--<label><input type="radio"  class="needInvoice" value="0" name="Checkout[invoice]">不开发票</label>-->
+                                        <input type="radio" checked="checked" value="4" name="Checkout[invoice]">
+                                        <p>电子发票（非纸质）</p>
+                                    </li>
+                                    <li class="item ">
+                                        <input type="radio" value="1" name="Checkout[invoice]">
+                                        <p>普通发票（纸质）</p>
+                                    </li>
+                                </ul>
+                                <p id="eInvoiceTip" class="e-invoice-tip ">
+                                    电子发票是税务局认可的有效凭证，可作为售后维权凭据，不随商品寄送。开票后不可更换纸质发票，如需报销请选择普通发票。<a
+                                        href="http://bbs.xiaomi.cn/thread-9285999-1-1.html" target="_blank">什么是电子发票？</a>
+                                </p>
+                                <div class="invoice-info nvoice-info-1" id="checkoutInvoiceElectronic"
+                                     style="display:none;">
 
- <div id="content" class="grid-c">
+                                    <p class="tip">电子发票目前仅对个人用户开具，不可用于单位报销 ，不随商品寄送</p>
+                                    <p>发票内容：购买商品明细</p>
+                                    <p>发票抬头：个人</p>
+                                    <p>
+                                        <span class="hide"><input type="radio" value="4" name="Checkout[invoice_type]"
+                                                                  checked="checked" id="electronicPersonal"
+                                                                  class="invoiceType"></span>
+                                    <dl>
+                                        <dt>什么是电子发票?</dt>
+                                        <dd>&#903; 电子发票是纸质发票的映像，是税务局认可的有效凭证，与传统纸质发票具有同等法律效力，可作为售后维权凭据。</dd>
+                                        <dd>&#903; 开具电子服务于个人，开票后不可更换纸质发票，不可用于单位报销。</dd>
+                                        <dd>&#903; 您在订单详情的"发票信息"栏可查看、下载您的电子发票。<a
+                                                href="http://bbs.xiaomi.cn/thread-9285999-1-1.html" target="_blank">什么是电子发票？</a>
+                                        </dd>
+                                    </dl>
+                                    </p>
+                                </div>
+                                <div class="invoice-info invoice-info-2" id="checkoutInvoiceDetail"
+                                     style="display:none;">
+                                    <p>发票内容：购买商品明细</p>
+                                    <p>
+                                        发票抬头：请确认单位名称正确,以免因名称错误耽搁您的报销。注：合约机话费仅能开个人发票
+                                    </p>
+                                    <ul class="type clearfix J_invoiceType">
+                                        <li class="hide">
+                                            <input type="radio" value="0" name="Checkout[invoice_type]"
+                                                   id="noNeedInvoice">
+                                        </li>
+                                        <li class="">
+                                            <input class="invoiceType" type="radio" id="commonPersonal"
+                                                   name="Checkout[invoice_type]" value="1">
+                                            个人
+                                        </li>
+                                        <li class="">
+                                            <input class="invoiceType" type="radio" name="Checkout[invoice_type]"
+                                                   value="2">
+                                            单位
+                                        </li>
+                                    </ul>
+                                    <div id='CheckoutInvoiceTitle' class=" hide  invoice-title">
+                                        <label for="Checkout[invoice_title]">单位名称：</label>
+                                        <input name="Checkout[invoice_title]" type="text" maxlength="49" value=""
+                                               class="input"> <span class="tip-msg J_tipMsg"></span>
+                                    </div>
 
-  <div id="address" class="address" style="margin-top: 20px;" data-spm="2">
-<form name="addrForm" id="addrForm" action="#">
-<h3>确认收货地址
- <span class="manage-address">
- <a href="http://member1.taobao.com/member/fresh/deliver_address.htm" target="_blank" title="管理我的收货地址"
- class="J_MakePoint" data-point-url="http://log.mmstat.com/buy.1.7">管理收货地址</a>
- </span>
-</h3>
-<ul id="address-list" class="address-list">
-     <li class="J_Addr J_MakePoint clearfix  J_DefaultAddr "  data-point-url="http://log.mmstat.com/buy.1.20">
- <s class="J_Marker marker"></s>
- <span class="marker-tip">寄送至</span>
-   <div class="address-info">
- <a href="#" class="J_Modify modify J_MakePoint" data-point-url="http://log.mmstat.com/buy.1.21">修改本地址</a>
- <input name="address"
- class="J_MakePoint "
- type="radio"
- value="674944241"
- id="addrId_674944241"
- data-point-url="http://log.mmstat.com/buy.1.20"
- ah:params="id=674944241^^stationId=0^^address=湖北民族学院（信息工程学院）  男生宿舍楼5栋102^^postCode=445000^^addressee=朱万雄^^phone=^^mobile=18727717260^^areaCode=422801"
-  checked="checked" >
- <label for="addrId_674944241" class="user-address">
-         湖北省 恩施土家族苗族自治州 恩施市 湖北民族学院（信息工程学院）  男生宿舍楼235栋2323102 (某某 收) <em>18427717260</em>
-   </label>
- <em class="tip" style="display: none">默认地址</em>
- <a class="J_DefaultHandle set-default J_MakePoint" href="/auction/update_address_selected_status.htm?addrid=674944241" style="display: none" data-point-url="http://log.mmstat.com/buy.1.18">设置为默认收货地址</a>
- </div>
-     </li>
-     <li class="J_Addr J_MakePoint clearfix"
- data-point-url="http://log.mmstat.com/buy.1.20" >
- <s class="J_Marker marker"></s>
- <span class="marker-tip">寄送至</span>
-   <div class="address-info">
- <a href="#" class="J_Modify modify J_MakePoint" data-point-url="#">修改本地址</a>
- <input name="address"
- class="J_MakePoint"
- type="radio"
- value="594209677"
- id="addrId_594209677"
- data-point-url="#"
- ah:params="#"
- >
- <label for="addrId_594209677" class="user-address">
-       湖北省 恩施土家族苗族自治州 恩施市 某某某 (某某某 收) <em>1342407681</em></label><em class="tip" style="display: none">默认地址</em>
-   <a class="J_DefaultHandle set-default J_MakePoint" style="display: none" data-point-url="#" href="#">设置为默认收货地址</a>
- </div>
-   </li>
-     </ul>
-<ul id="J_MoreAddress" class="address-list hidden">
-     
- </ul>
+                                </div>
 
-<div class="address-bar">
- <a href="#" class="new J_MakePoint" id="J_NewAddressBtn">使用新地址</a>
- </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- 发票信息 END-->
+                </div>
+                <div class="checkout-box-ft">
+                    <!-- 商品清单 -->
+                    <div id="checkoutGoodsList" class="checkout-goods-box">
+                        <div class="xm-box">
+                            <div class="box-hd">
+                                <h2 class="title">确认订单信息</h2>
+                            </div>
+                            <div class="box-bd">
+                                <dl class="checkout-goods-list">
+                                    <dt class="clearfix">
+                                        <span class="col col-1">商品名称</span>
+                                        <span class="col col-2">购买价格</span>
+                                        <span class="col col-3">购买数量</span>
+                                        <span class="col col-4">小计（元）</span>
+                                    </dt>
+                                    <dd class="item clearfix">
+                                        <div class="item-row">
+                                            <div class="col col-1">
+                                                <div class="g-pic">
+                                                    <img src="http://i1.mifile.cn/a1/T11lLgB5YT1RXrhCrK!40x40.jpg"
+                                                         srcset="http://i1.mifile.cn/a1/T11lLgB5YT1RXrhCrK!80x80.jpg 2x"
+                                                         width="40" height="40"/>
+                                                </div>
+                                                <div class="g-info">
+                                                    <a href="#">
+                                                        小米T恤 忍者米兔双截棍 军绿 XXL </a>
+                                                </div>
+                                            </div>
 
-</form>
+                                            <div class="col col-2">39元</div>
+                                            <div class="col col-3">1</div>
+                                            <div class="col col-4">39元</div>
+                                        </div>
+                                    </dd>
+                                    <dd class="item clearfix">
+                                        <div class="item-row">
+                                            <div class="col col-1">
+                                                <div class="g-pic">
+                                                    <img src="http://i1.mifile.cn/a1/T14BLvBKJT1RXrhCrK!40x40.jpg"
+                                                         srcset="http://i1.mifile.cn/a1/T14BLvBKJT1RXrhCrK!80x80.jpg 2x"
+                                                         width="40" height="40"/>
+                                                </div>
+                                                <div class="g-info">
+                                                    <a href="#">
+                                                        招财猫米兔 白色 </a>
+                                                </div>
+                                            </div>
+
+                                            <div class="col col-2">49元</div>
+                                            <div class="col col-3">1</div>
+                                            <div class="col col-4">49元</div>
+                                        </div>
+                                    </dd>
+                                    <dd class="item clearfix">
+                                        <div class="item-row">
+                                            <div class="col col-1">
+                                                <div class="g-pic">
+                                                    <img src="http://i1.mifile.cn/a1/T1rrDgB4DT1RXrhCrK!40x40.jpg"
+                                                         srcset="http://i1.mifile.cn/a1/T1rrDgB4DT1RXrhCrK!80x80.jpg 2x"
+                                                         width="40" height="40"/>
+                                                </div>
+                                                <div class="g-info">
+                                                    <a href="#">
+                                                        小米圆领纯色T恤 男款 红色 XXL </a>
+                                                </div>
+                                            </div>
+
+                                            <div class="col col-2">39元</div>
+                                            <div class="col col-3">4</div>
+                                            <div class="col col-4">156元</div>
+                                        </div>
+                                    </dd>
+                                </dl>
+                                <div class="checkout-count clearfix">
+                                    <div class="checkout-count-extend xm-add-buy">
+                                        <h3 class="title">会员留言</h3></br>
+                                        <input type="text"/>
+
+                                    </div>
+                                    <!-- checkout-count-extend -->
+                                    <div class="checkout-price">
+                                        <ul>
+
+                                            <li>
+                                                订单总额：<span>244元</span>
+                                            </li>
+                                            <li>
+                                                活动优惠：<span>-0元</span>
+                                                <script type="text/javascript">
+                                                    checkoutConfig.activityDiscountMoney = 0;
+                                                    checkoutConfig.totalPrice = 244.00;
+                                                </script>
+                                            </li>
+                                            <li>
+                                                优惠券抵扣：<span id="couponDesc">-0元</span>
+                                            </li>
+                                            <li>
+                                                运费：<span id="postageDesc">0元</span>
+                                            </li>
+                                        </ul>
+                                        <p class="checkout-total">应付总额：<span><strong
+                                                id="totalPrice">244</strong>元</span></p>
+                                    </div>
+                                    <!--  -->
+                                </div>
+                            </div>
+                        </div>
+
+                        <!--S 加价购 产品选择弹框 -->
+                        <div class="modal hide modal-choose-pro" id="J_choosePro-664">
+                            <div class="modal-header">
+                                <span class="close" data-dismiss='modal'><i class="iconfont">&#xe617;</i></span>
+                                <h3>选择产品</h3>
+                                <div class="more">
+                                    <div class="xm-recommend-page clearfix">
+                                        <a class="page-btn-prev   J_carouselPrev iconfont" href="javascript: void(0);">
+                                            &#xe604;</a><a class="page-btn-next  J_carouselNext iconfont"
+                                                           href="javascript: void(0);">&#xe605;</a>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="modal-body J_chooseProCarousel">
+                                <div class="J_carouselWrap modal-choose-pro-list-wrap">
+                                    <ul class="clearfix J_carouselList">
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="modal-footer">
+                                <a href="#" class="btn btn-disabled J_chooseProBtn">加入购物车</a>
+                            </div>
+                        </div>
+
+                    </div>
+                    <!-- 商品清单 END -->
+                    <input type="hidden" id="couponType" name="Checkout[couponsType]">
+                    <input type="hidden" id="couponValue" name="Checkout[couponsValue]">
+                    <div class="checkout-confirm">
+
+                        <a href="#" class="btn btn-lineDakeLight btn-back-cart">返回购物车</a>
+                        <input type="submit" class="btn btn-primary" value="立即下单" id="checkoutToPay"/>
+                    </div>
+                </div>
+        </div>
+        </form>
+    </div>
+
+    <script src="/js/seckill/order/base.min.js"></script>
+    <script type="text/javascript" src="/js/seckill/order/address_all.js"></script>
+    <script type="text/javascript" src="/js/seckill/order/checkout.min.js"></script>
 </div>
-<form id="J_Form" name="J_Form" action="/auction/order/unity_order_confirm.htm" method="post">
- <input name='_tb_token_' type='hidden' value='IZpONoL2bm'>
- <input type="hidden" name="action" value="order/confirmOrderAction" />
- <input type="hidden" name="event_submit_do_confirm" value="1" />
- <input type="hidden" id="J_InsuranceDatas" name="insurance_datas" value="" />
- <input type="hidden" id="J_InsuranceParamCheck" name="insurance_param_check" value="" />
- <input type="hidden" name="" id="J_checkCodeUrl" value="/auction/order/check_code.htm"/>
-   <input type="hidden"   name="need_not_split_sellers"  value="" />
-   <input type="hidden"   name="from"  value="cart" />
-   <input type="hidden"   name="cnData"  value="" />
-   <input type="hidden"   name="shop_id"  value="0"  class="J_FareParam" />
-   <input type="hidden"   name="cartShareTag"  value="" />
-   <input type="hidden"   name="flushingPictureServiceId"  value="" />
-   <input type="hidden"  id="J_channelUrl"   name="channel"  value="no-detail"  class="J_FareParam" />
-   <input type="hidden"   name="cinema_id"  value="" />
-   <input type="hidden"  id="item"   name="item"  value="35612993875_19614514619_1_31175333266_1704508670_0_0_0_cartCreateTime~1380269540000" />
-   <input type="hidden"  id="cartId"   name="cartId"  value="35612993875" />
-   <input type="hidden"  id="verticalParams"   name="verticalParams"  value="" />
-   <input type="hidden"   name="cross_shop_ids"  value="" />
-   <input type="hidden"   name="tmall_cross_shop_ids"  value="NULL" />
-   <input type="hidden"   name="buyer_from"  value="cart"  class="J_FareParam" />
-   <input type="hidden"   name="tbsc_channel_id"  value="0" />
-   <input type="hidden"   name="checkCodeIds"  value="35612993875_19614514619_1_31175333266_1704508670_0_0_0_cartCreateTime~1380269540000" />
-   <input type="hidden"  id="J_OrderInfoString"   name="orderInfoString"  value="1704508670:2:19614514619:31175333266:" />
-   <input type="hidden"  id="J_OrderInfoStringForCod"   name="orderInfoStringForCod"  value="1704508670_2,19614514619:31175333266:35612993875" />
-   <input type="hidden"   name="encryptString"  value="0A04F3D8F7EEDC813AFF8711BE47B9E5E96F6E86A391A4C2" />
-   <input type="hidden"   name="secondDivisionCode"  value="422801" />
-   <input type="hidden"   name="use_cod"  value="false"  class="J_FareParam" />
-   <input type="hidden"   name="1704508670:2|seq"  value="b_47285539868" />
-   <input type="hidden"   name="n_area"  value="422801" />
-   <input type="hidden"   name="n_city"  value="422800" />
-   <input type="hidden"   name="n_prov"  value="420000" />
-   <input type="hidden"   name="n_state"  value="0" />
-   <input type="hidden"   name="n_country"  value="1" />
-   <input type="hidden"  id="defaultId"   name="defaultId"  value="674944241" />
-   <input type="hidden"   name="postCode"  value="445000" />
-   <input type="hidden"   name="deliverAddr"  value="湖北民族学院（信息工程学院）  男生宿舍楼5栋102" />
-   <input type="hidden"   name="addressId"  value="674944241" />
-   <input type="hidden"   name="deliverMobile"  value="18727717260" />
-   <input type="hidden"   name="deliverName"  value="朱万雄" />
-   <input type="hidden"   name="deliverPhone"  value="" />
-   <input type="hidden"  id="divisionCode"   name="divisionCode"  value="422801" />
-   <input type="hidden"  id="J_CodAction"   name="CodAction"  value="http://delivery.taobao.com/cod/cod_payway.htm" />
-   <input type="hidden"  id="event_submit_do_cod_switcher"   name="event_submit_do_cod_switcher"  value="1" />
-   <input type="hidden"  id="J_CodActionNew"   name="CodActionNew"  value="cod/codOrder_switcher_action" />
-   <input type="hidden"   name="guest_buyer"  value="false" />
-     <input type="hidden" id="J_sid" name="sid" value="32457704949"/>
- <input type="hidden" id="J_gmtCreate" name="gmtCreate" value="1380270550897"/>
- <input type="hidden" name="secStrNoCCode" value="6dd2fa5d614e2ced1d3189b0c2da09c0"/>
 
- <input type="hidden" id="J_TransferWarehouseId" name="overseasWarehouseId" value="" />
- <input type="hidden" id="J_TransferWarehouseDivisionId" name="overseasWarehouseDivisionId" value="" />
-
-   <input type="hidden" id="paramString" value="tuan_type=0&use_cod=false&shop_id=0&item=35612993875_19614514619_1_31175333266_1704508670_0_0_0_cartCreateTime~1380269540000&buyer_from=cart&isRepost=true&"/>
- <input type="hidden" id="J_StepPayData" value='""'/>
- 
-   <input type="hidden" name="unity" value="1" />
-
-<input type="hidden" name="buytraceid" value="" />
-<input type="hidden" name="activity" value="" />
-<input type="hidden" name="bankfrom" value="" />
-<input type="hidden" name="yfx315" value="" />
-
-<input type="hidden" id="J_channelUrl" name="channel" value="no-detail" class="J_FareParam"/>
-   <input type="hidden" id="J_actId" name="actId" value="" />
-   <input type="hidden" name="etkv" value=""/>
-   <input type="hidden" name="havePremium" value="false" />
- <input type="hidden" name="cartShareTag" value="" />
- <input type="hidden" name="flushingPictureServiceId" value="" />
-           <div>
- <h3 class="dib">确认订单信息</h3>
- <table cellspacing="0" cellpadding="0" class="order-table" id="J_OrderTable" summary="统一下单订单信息区域">
- <caption style="display: none">统一下单订单信息区域</caption>
- <thead>
- <tr>
- <th class="s-title">店铺宝贝<hr/></th>
- <th class="s-price">单价(元)<hr/></th>
- <th class="s-amount">数量<hr/></th>
- <th class="s-agio">优惠方式(元)<hr/></th>
- <th class="s-total">小计(元)<hr/></th>
- </tr>
- </thead>
-     
-
-
-<tbody data-spm="3" class="J_Shop" data-tbcbid="0" data-outorderid="47285539868"  data-isb2c="false" data-postMode="2" data-sellerid="1704508670">
-<tr class="first"><td colspan="5"></td></tr>
-<tr class="shop blue-line">
- <td colspan="3">
-   店铺：<a class="J_ShopName J_MakePoint" data-point-url="http://log.mmstat.com/buy.1.6" href="http://store.taobao.com/shop/view_shop.htm?shop_id=104337282"
- target="_blank" title="淘米魅">淘米魅</a>
-     <span class="seller">卖家：<a href="http://member1.taobao.com/member/user_profile.jhtml?user_id=ac5831c32f47bc9267fcb75b71b5eed6" target="_blank" class="J_MakePoint" data-point-url="http://log.mmstat.com/buy.1.15">淘米魅</a></span>
-     <span class="J_WangWang"  data-nick="淘米魅"   data-display="inline" ></span>
-    
-    </td>
- <td colspan="2" class="promo">
- <div>
-   <ul class="scrolling-promo-hint J_ScrollingPromoHint">
-       </ul>
-   </div>
- </td>
-</tr>
- <tr class="item" data-lineid="19614514619:31175333266:35612993875" data-pointRate="0">
- <td class="s-title">
-   <a href="#" target="_blank" title="Huawei/华为 G520新款双卡双待安卓系统智能手机4.5寸四核手手机" class="J_MakePoint" data-point-url="http://log.mmstat.com/buy.1.5">
-     <img src="http://img03.taobaocdn.com/bao/uploaded/i3/18670026332876589/T1A4icFbNeXXXXXXXX_!!0-item_pic.jpg_60x60.jpg" class="itempic"><span class="title J_MakePoint" data-point-url="http://log.mmstat.com/buy.1.5">Huawei/华为 G520新款双卡双待安卓系统智能手机4.5寸四核手手机</span></a>
-
-   <div class="props">
-     <span>机身颜色: 黑 </span>
-   <span>手机套餐: 套餐二 </span>
-   <span>机身内存: 4G </span>
-   <span>版本: 中国大陆 </span>
-         </div>
- <a title="消费者保障服务，卖家承诺商品如实描述" href="#" target="_blank">
-<img src="http://img03.taobaocdn.com/tps/i3/T1bnR4XEBhXXcQVo..-14-16.png"/>
-</a>
-    <div>
- <span style="color:gray;">卖家承诺72小时内发货</span>
- </div>
-     </td>
- <td class="s-price">
-   
-  <span class='price '>
- <em class="style-normal-small-black J_ItemPrice"  >630.00</em>
-  </span>
-<input type="hidden" name="costprice" value="630.00" class="J_CostPrice" />
-</td>
- <td class="s-amount" data-point-url="">
-         <input type="hidden" class="J_Quantity" value="1" name="19614514619_31175333266_35612993875_quantity"/>1
- 
- </td>
- <td class="s-agio">
-       <div class="J_Promotion promotion" data-point-url="">无优惠</div>
-   </td>
- <td class="s-total">
-   
-   <span class='price '>
- <em class="style-normal-bold-red J_ItemTotal "  >630.00</em>
-  </span>
-    <input id="furniture_service_list_b_47285539868" type="hidden" name="furniture_service_list_b_47285539868"/>
- </td>
-</tr>
-
-
-
-<tr class="item-service">
- <td colspan="5" class="servicearea" style="display: none"></td>
-</tr>
-
-<tr class="blue-line" style="height: 2px;"><td colspan="5"></td></tr>
-<tr class="other other-line">
- <td colspan="5">
- <ul class="dib-wrap">
- <li class="dib user-info">
- <ul class="wrap">
- <li>
-  <div class="field gbook">
-   <label class="label">给卖家留言：</label>
-   <textarea style="width:350px;height:80px;" title="选填：对本次交易的补充说明（建议填写已经和卖家达成一致的说明）" name=""></textarea>
- </div>
-</li>
-   </ul>
- </li>
- <li class="dib extra-info">
-
- <div class="shoparea">
- <ul class="dib-wrap">
- <li class="dib title">店铺优惠：</li>
- <li class="dib sel"><div class="J_ShopPromo J_Promotion promotion clearfix" data-point-url="http://log.mmstat.com/buy.1.16"></div></li>
- <li class="dib fee">  <span class='price '>
- -<em class="style-normal-bold-black J_ShopPromo_Result"  >0.00</em>
-  </span>
-</li>
- </ul>
- </div>
-
- <div class="shoppointarea"></div>
-
-   <div class="farearea">
- <ul class="dib-wrap J_farearea">
- <li class="dib title">运送方式：</li>
- <li class="dib sel" data-point-url="http://log.mmstat.com/jsclick?cache=*&tyxd=wlysfs">
- <input type="hidden" name="1704508670:2|actualPaidFee" value="0" class="J_ActualPaidFee" />
- <input type="hidden" name="1704508670:2|codAllowMultiple" value="true"/>
- <input type="hidden" name="1704508670:2|codSellerFareFee" value="" class="J_CodSellerFareFee"/>
- <input type="hidden" name="1704508670:2|codServiceFeeRate" value="" class="J_CodServiceFeeRate"/>
- <input type="hidden" name="1704508670:2|codPostFee" value="0" class="J_CodPostFee"/>
-   <select name="1704508670:2|post" class="J_Fare">
-     <option data-fare="1500" value=" 2 " data-codServiceType="2" data-level=""  selected="selected"  >
- 快递 15.00元 
- </option>
-       <option data-fare="2500" value=" 7 " data-codServiceType="7" data-level=""  >
- EMS 25.00元 
- </option>
-       <option data-fare="1500" value=" 1 " data-codServiceType="1" data-level=""  >
- 平邮 15.00元 
- </option>
-     </select>
-   <em tabindex="0" class="J_FareFree" style="display: none">免邮费</em>
-     </li>
- <li class="dib fee">  <span class='price '>
- <em class="style-normal-bold-red J_FareSum"  >30.00</em>
-  </span>
-</li>
- </ul>
- </div>
-   <div class="extra-area">
- <ul class="dib-wrap">
- <li class="dib title">发货时间：</li>
- <li class="dib content">卖家承诺订单在买家付款后，72小时内<a href="#">发货</a></li>
- </ul>
- </div>
-   
-   <div class="servicearea" style="display: none"></div>
- </li>
- </ul>
- </td>
-</tr>
-
-<tr class="shop-total blue-line">
- <td colspan="5">店铺合计(<span class="J_Exclude" style="display: none">不</span>含运费<span class="J_ServiceText" style="display: none">，服务费</span>)：
-   <span class='price g_price '>
- <span>&yen;</span><em class="style-middle-bold-red J_ShopTotal"  >630.00</em>
-  </span>
-  <input type="hidden" name="1704508670:2|creditcard" value="false" />
-<input type="hidden" id="J_IsLadderGroup" name="isLadderGroup" value="false"/>
-
-   </td>
-</tr>
-</tbody>
-  <tfoot>
- <tr>
- <td colspan="5">
-
-<div class="order-go" data-spm="4">
-<div class="J_AddressConfirm address-confirm">
- <div class="kd-popup pop-back" style="margin-bottom: 40px;">
- <div class="box">
- <div class="bd">
- <div class="point-in">
-   
-   <em class="t">实付款：</em>  <span class='price g_price '>
- <span>&yen;</span><em class="style-large-bold-red"  id="J_ActualFee"  >630.00</em>
-  </span>
-</div>
-
-  <ul >
- <li><em>寄送至:</em><span id="J_AddrConfirm" style="word-break: break-all;">
-   湖北省 恩施土家族苗族自治州 恩施市 湖北民族学院（信息工程学院）  男生宿舍楼235栋1234202
-   </span></li>
- <li><em>收货人:</em><span id="J_AddrNameConfirm">某某某 18124317260 </span></li>
- </ul>
-     </div>
- </div>
-         <a href="#"
- class="back J_MakePoint" target="_top"
- data-point-url="">返回购物车</a>
-       <a id="J_Go" class=" btn-go"  data-point-url=""  tabindex="0" title="点击此按钮，提交订单。">提交订单<b class="dpl-button"></b></a>
-  </div>
- </div>
-
- <div class="J_confirmError confirm-error">
- <div class="msg J_shopPointError" style="display: none;"><p class="error">积分点数必须为大于0的整数</p></div>
- </div>
-
-
- <div class="msg" style="clear: both;">
- <p class="tips naked" style="float:right;padding-right: 0">若价格变动，请在提交订单后联系卖家改价，并查看已买到的宝贝</p>
- </div>
- </div>
- </td>
- </tr>
- </tfoot>
- </table>
-</div>
-  
- <input type="hidden" id="J_useSelfCarry" name="useSelfCarry" value="false" />
- <input type="hidden" id="J_selfCarryStationId" name="selfCarryStationId" value="0" />
- <input type="hidden" id="J_useMDZT" name="useMDZT" value="false" />
- <input type="hidden" name="useNewSplit" value="true" />
- <input type="hidden" id="J_sellerIds" name="allSellIds" value="1704508670" />
-</form>
-</div>
-
-<div id="footer"></div>
-</div>
-<div style="text-align:center;">
-<p>来源:<a href="http://www.mycodes.net/" target="_blank">源码之家</a></p>
-</div>
 </body>
 </html>

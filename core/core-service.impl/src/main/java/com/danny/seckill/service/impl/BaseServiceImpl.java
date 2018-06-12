@@ -13,7 +13,7 @@ import org.springframework.jdbc.datasource.DataSourceTransactionManager;
 import java.lang.reflect.InvocationTargetException;
 
 /**
- * @author huyuyang@lxfintech.com
+ * @author dannyhoo
  * @Title: BaseServiceImpl
  * @Copyright: Copyright (c) 2016
  * @Description:

@@ -9,7 +9,7 @@ import java.security.interfaces.RSAPublicKey;
 import java.util.HashMap;
 
 /**
- * @author huyuyang@lxfintech.com
+ * @author dannyhoo
  * @Title: UserBusiness
  * @Copyright: Copyright (c) 2016
  * @Description:

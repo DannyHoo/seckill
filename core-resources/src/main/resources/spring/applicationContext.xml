@@ -75,12 +75,32 @@
     <!-- AOP日志配置 -->
     <aop:config>
         <aop:aspect id="xxLogTraceAspect" ref="logTraceAspect">
-            <aop:pointcut id="logPointcut" expression="execution(* com.danny.seckill.service..*.*(..))"></aop:pointcut>
+            <aop:pointcut id="logPointcut" expression="execution(* com.danny.seckill.resources.controller..*.*(..)) or execution(* com.danny.seckill.service..*.*(..)) or execution(* com.danny.seckill.domain..*.*(..)) or execution(* com.danny.seckill.dao..*.*(..)) "/>
             <aop:around method="logTrace" pointcut-ref="logPointcut"></aop:around>
+            <aop:after-throwing method="afterThrowing" pointcut-ref="logPointcut"></aop:after-throwing>
         </aop:aspect>
     </aop:config>
 
     <bean id="logTraceAspect" class="com.danny.seckill.framework.log.trace.LogTraceAspect">
-
+        <property name="bizSystem">
+            <value>${bizSystem}</value>
+        </property>
+        <property name="bizService">
+            <value>${bizService}</value>
+        </property>
+        <property name="bizSuccessConfigs">
+            <list>
+                <value>service="businessResult":"SUCCESS"</value>
+                <value>dubbo="businessResult":"SUCCESS"</value>
+            </list>
+        </property>
+        <property name="codeLayerConfigs">
+            <list>
+                <value>.controller.=controller</value>
+                <value>.service.=service</value>
+                <value>.domain.=domain</value>
+                <value>.dao.=dao</value>
+            </list>
+        </property>
     </bean>
 </beans>

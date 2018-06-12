@@ -12,7 +12,7 @@ import java.security.spec.*;
 import java.util.HashMap;
 
 /**
- * @author huyuyang@lxfintech.com
+ * @author dannyhoo
  * @Title: RSAUtil
  * @Copyright: Copyright (c) 2016
  * @Description:

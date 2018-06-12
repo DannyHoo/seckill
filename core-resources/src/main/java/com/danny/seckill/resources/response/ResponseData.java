@@ -5,7 +5,7 @@ import com.danny.seckill.framework.model.enums.ResultStatusEnumInterface;
 import com.danny.seckill.model.result.CommonResult;
 
 /**
- * @author huyuyang@lxfintech.com
+ * @author dannyhoo
  * @Title: ResponseData
  * @Copyright: Copyright (c) 2016
  * @Description:

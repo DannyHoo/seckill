@@ -5,7 +5,7 @@ import com.danny.seckill.model.param.system.UserParameter;
 import com.danny.seckill.model.result.CommonResult;
 
 /**
- * @author huyuyang@lxfintech.com
+ * @author dannyhoo
  * @Title: UserService
  * @Copyright: Copyright (c) 2016
  * @Description:

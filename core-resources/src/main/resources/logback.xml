@@ -23,6 +23,21 @@ debug：当此属性设置为true时，将打印出logback内部日志信息，�
         </encoder>
     </appender>
 
+    <appender name="RollingFileAppender_Trace" class="ch.qos.logback.core.rolling.RollingFileAppender">
+        <file>${loggingRoot}/trace.log</file>
+        <!--按照每天生成日志文件，最多保留30天，每过一天，日志名就变成类似log.2017-01-19.log.gz的形式。-->
+        <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+            <fileNamePattern>${loggingRoot}/service.%d{yyyy-MM-dd}.log</fileNamePattern>
+            <maxHistory>90</maxHistory>
+        </rollingPolicy>
+        <encoder class="ch.qos.logback.classic.encoder.PatternLayoutEncoder">
+            <pattern>%msg%n</pattern>
+            <!--<pattern>
+                %d{yyyy-MM-dd HH:mm:ss.SSS} %-5level ${version} [%thread]%logger{16} - %msg%n
+            </pattern>-->
+        </encoder>
+    </appender>
+
     <appender name="RollingFileAppender_Controller" class="ch.qos.logback.core.rolling.RollingFileAppender">
         <file>${loggingRoot}/controller.log</file>
         <!--按照每天生成日志文件，最多保留30天，每过一天，日志名就变成类似log.2017-01-19.log.gz的形式。-->
@@ -52,6 +67,10 @@ debug：当此属性设置为true时，将打印出logback内部日志信息，�
             </pattern>-->
         </encoder>
     </appender>
+
+    <logger name="com.danny.seckill.framework.log.trace" level="${loggingLevel}">
+        <appender-ref ref="RollingFileAppender_Trace"/>
+    </logger>
 
     <logger name="com.danny.seckill.resources.controller" level="${loggingLevel}">
         <appender-ref ref="RollingFileAppender_Controller"/>

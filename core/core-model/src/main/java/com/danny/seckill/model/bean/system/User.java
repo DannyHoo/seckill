@@ -5,7 +5,7 @@ import com.danny.seckill.model.bean.BaseBean;
 import java.util.Date;
 
 /**
- * @author huyuyang@lxfintech.com
+ * @author dannyhoo
  * @Title: User
  * @Copyright: Copyright (c) 2016
  * @Description:

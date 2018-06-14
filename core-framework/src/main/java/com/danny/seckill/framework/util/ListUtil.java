@@ -13,11 +13,12 @@ import java.util.List;
 public class ListUtil {
     /**
      * 判断是否为空
+     *
      * @param list
      * @return
      */
     public static boolean isEmpty(List list) {
-        if(list == null) {
+        if (list == null) {
             return true;
         }
         return list.isEmpty();
@@ -25,10 +26,19 @@ public class ListUtil {
 
     /**
      * 判断列表不为空
+     *
      * @param list
      * @return
      */
     public static boolean isNotEmpty(List list) {
         return !isEmpty(list);
+    }
+
+    public static  <T> T getFirst(List list) {
+        if (isNotEmpty(list)) {
+            return (T) list.get(0);
+        } else {
+            return null;
+        }
     }
 }

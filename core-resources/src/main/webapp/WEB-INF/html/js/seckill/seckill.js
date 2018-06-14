@@ -55,11 +55,12 @@ $(function () {
 })
 
 
+var startTime = new Date();//商品秒杀开始时间
 var endtime = new Date();//商品秒杀结束时间
 var nowtime = new Date();//服务器端现在时间
 var longTime = 0;
 function _getDate() {
-    $.get("/seckill/getdate", function (data) {
+    $.get("/seckill/getSeckillTime", function (data) {
         var strServerEndTime=data.endtime;
         var strServerNowTime=data.nowtime;
         endtime = new Date(strServerEndTime);

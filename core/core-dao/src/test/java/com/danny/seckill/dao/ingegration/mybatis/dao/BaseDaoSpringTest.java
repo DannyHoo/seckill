@@ -1,5 +1,7 @@
 package com.danny.seckill.dao.ingegration.mybatis.dao;
 
+import com.alibaba.fastjson.JSON;
+import com.alibaba.fastjson.serializer.SerializerFeature;
 import org.apache.commons.lang3.RandomStringUtils;
 import org.junit.Assert;
 import org.junit.runner.RunWith;
@@ -19,6 +21,13 @@ import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 @RunWith(SpringJUnit4ClassRunner.class)
 @ContextConfiguration(locations = {"classpath:/applicationContext-dao-test.xml"})
 public abstract class BaseDaoSpringTest extends AbstractTransactionalJUnit4SpringContextTests {
+
+    private SerializerFeature[] features = new SerializerFeature[] {
+            SerializerFeature.WriteClassName,
+            //SerializerFeature.SkipTransientField,
+            //SerializerFeature.DisableCircularReferenceDetect
+    };
+
     public void fail(Exception e) {
         e.printStackTrace();
         Assert.fail(e.getMessage());
@@ -33,6 +42,9 @@ public abstract class BaseDaoSpringTest extends AbstractTransactionalJUnit4Sprin
         System.out.println(message);
     }
 
+    public void print(Object object){
+        System.out.println(JSON.toJSONString(object,features));
+    }
     /**
      * 随机生成指定位数的数字与字母相结合
      *

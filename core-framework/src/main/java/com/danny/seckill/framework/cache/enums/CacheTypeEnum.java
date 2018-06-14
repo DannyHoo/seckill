@@ -10,8 +10,10 @@ package com.danny.seckill.framework.cache.enums;
  */
 public enum CacheTypeEnum {
 
-    LOCAL_MEMORY_CACHE("LocalMemoryCache","com.danny.seckill.framework.cache.impl.LocalMemoryCacheImpl"),
-            ;
+    LOCAL_MEMORY_CACHE("LocalMemoryCache", "com.danny.seckill.framework.cache.impl.LocalMemoryCacheImpl"),
+    REDIS_CACHE("RedisCache", "com.danny.seckill.framework.cache.impl.RedisCacheImpl"),
+
+    ;
 
     private String cacheName;
     private String implClass;

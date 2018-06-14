@@ -19,7 +19,7 @@ public class CacheFactory {
     }
 
     /**
-     * 获取缓存操作示例
+     * 获取缓存操作示例 默认本地内存缓存
      *
      * @param cacheTypeEnum 缓存类型
      * @return

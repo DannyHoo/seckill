@@ -1,6 +1,7 @@
 package com.danny.seckill.dao.ingegration.jpa.dao.system;
 
 import com.alibaba.fastjson.JSON;
+import com.danny.seckill.dao.ingegration.mybatis.dao.BaseDaoSpringTest;
 import com.danny.seckill.dao.jpa.dao.system.UserDAO;
 import com.danny.seckill.dao.jpa.data.system.UserDO;
 import com.danny.seckill.dao.mybatis.dao.system.UserMapper;
@@ -13,13 +14,13 @@ import java.util.Date;
 
 /**
  * @author dannyhoo
- * @Title: UserDODAOIntegrationTest
+ * @Title: UserDAOIntegrationTest
  * @Copyright: Copyright (c) 2016
  * @Description:
  * @Company: lxjr.com
  * @Created on 2018-05-29 17:21:28
  */
-public class UserDODAOIntegrationTest/* extends BaseDaoSpringTest*/ {
+public class UserDAOIntegrationTest extends BaseDaoSpringTest {
 
     @Autowired
     private UserDAO userDAO;

@@ -11,7 +11,7 @@ import org.springframework.test.annotation.Rollback;
 
 /**
  * @author dannyhoo
- * @Title: UserDODAOIntegrationTest
+ * @Title: UserDAOIntegrationTest
  * @Copyright: Copyright (c) 2016
  * @Description:
  * @Company: lxjr.com

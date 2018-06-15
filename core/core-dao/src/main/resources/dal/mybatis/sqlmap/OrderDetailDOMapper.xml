@@ -1,0 +1,275 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.danny.seckill.dao.mybatis.dao.order.OrderDetailDOMapper">
+  <resultMap id="BaseResultMap" type="com.danny.seckill.dao.mybatis.data.order.OrderDetailDO">
+    <id column="id" jdbcType="INTEGER" property="id" />
+    <result column="orderNo" jdbcType="VARCHAR" property="orderno" />
+    <result column="goodsNo" jdbcType="VARCHAR" property="goodsno" />
+    <result column="goodsNum" jdbcType="INTEGER" property="goodsnum" />
+    <result column="totalPrice" jdbcType="DECIMAL" property="totalprice" />
+    <result column="actualPrice" jdbcType="DECIMAL" property="actualprice" />
+    <result column="comment" jdbcType="VARCHAR" property="comment" />
+    <result column="createTime" jdbcType="TIMESTAMP" property="createtime" />
+    <result column="updateTime" jdbcType="TIMESTAMP" property="updatetime" />
+  </resultMap>
+  <sql id="Example_Where_Clause">
+    <where>
+      <foreach collection="oredCriteria" item="criteria" separator="or">
+        <if test="criteria.valid">
+          <trim prefix="(" prefixOverrides="and" suffix=")">
+            <foreach collection="criteria.criteria" item="criterion">
+              <choose>
+                <when test="criterion.noValue">
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue">
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue">
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue">
+                  and ${criterion.condition}
+                  <foreach close=")" collection="criterion.value" item="listItem" open="(" separator=",">
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Update_By_Example_Where_Clause">
+    <where>
+      <foreach collection="example.oredCriteria" item="criteria" separator="or">
+        <if test="criteria.valid">
+          <trim prefix="(" prefixOverrides="and" suffix=")">
+            <foreach collection="criteria.criteria" item="criterion">
+              <choose>
+                <when test="criterion.noValue">
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue">
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue">
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue">
+                  and ${criterion.condition}
+                  <foreach close=")" collection="criterion.value" item="listItem" open="(" separator=",">
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Base_Column_List">
+    id, orderNo, goodsNo, goodsNum, totalPrice, actualPrice, comment, createTime, updateTime
+  </sql>
+  <select id="selectByExample" parameterType="com.danny.seckill.dao.mybatis.data.order.OrderDetailDOExample" resultMap="BaseResultMap">
+    select
+    <if test="distinct">
+      distinct
+    </if>
+    <include refid="Base_Column_List" />
+    from t_order_detail
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null">
+      order by ${orderByClause}
+    </if>
+  </select>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from t_order_detail
+    where id = #{id,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    delete from t_order_detail
+    where id = #{id,jdbcType=INTEGER}
+  </delete>
+  <delete id="deleteByExample" parameterType="com.danny.seckill.dao.mybatis.data.order.OrderDetailDOExample">
+    delete from t_order_detail
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+  </delete>
+  <insert id="insert" parameterType="com.danny.seckill.dao.mybatis.data.order.OrderDetailDO">
+    insert into t_order_detail (id, orderNo, goodsNo, 
+      goodsNum, totalPrice, actualPrice, 
+      comment, createTime, updateTime
+      )
+    values (#{id,jdbcType=INTEGER}, #{orderno,jdbcType=VARCHAR}, #{goodsno,jdbcType=VARCHAR}, 
+      #{goodsnum,jdbcType=INTEGER}, #{totalprice,jdbcType=DECIMAL}, #{actualprice,jdbcType=DECIMAL}, 
+      #{comment,jdbcType=VARCHAR}, #{createtime,jdbcType=TIMESTAMP}, #{updatetime,jdbcType=TIMESTAMP}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.danny.seckill.dao.mybatis.data.order.OrderDetailDO">
+    insert into t_order_detail
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        id,
+      </if>
+      <if test="orderno != null">
+        orderNo,
+      </if>
+      <if test="goodsno != null">
+        goodsNo,
+      </if>
+      <if test="goodsnum != null">
+        goodsNum,
+      </if>
+      <if test="totalprice != null">
+        totalPrice,
+      </if>
+      <if test="actualprice != null">
+        actualPrice,
+      </if>
+      <if test="comment != null">
+        comment,
+      </if>
+      <if test="createtime != null">
+        createTime,
+      </if>
+      <if test="updatetime != null">
+        updateTime,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        #{id,jdbcType=INTEGER},
+      </if>
+      <if test="orderno != null">
+        #{orderno,jdbcType=VARCHAR},
+      </if>
+      <if test="goodsno != null">
+        #{goodsno,jdbcType=VARCHAR},
+      </if>
+      <if test="goodsnum != null">
+        #{goodsnum,jdbcType=INTEGER},
+      </if>
+      <if test="totalprice != null">
+        #{totalprice,jdbcType=DECIMAL},
+      </if>
+      <if test="actualprice != null">
+        #{actualprice,jdbcType=DECIMAL},
+      </if>
+      <if test="comment != null">
+        #{comment,jdbcType=VARCHAR},
+      </if>
+      <if test="createtime != null">
+        #{createtime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updatetime != null">
+        #{updatetime,jdbcType=TIMESTAMP},
+      </if>
+    </trim>
+  </insert>
+  <select id="countByExample" parameterType="com.danny.seckill.dao.mybatis.data.order.OrderDetailDOExample" resultType="java.lang.Long">
+    select count(*) from t_order_detail
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+  </select>
+  <update id="updateByExampleSelective" parameterType="map">
+    update t_order_detail
+    <set>
+      <if test="record.id != null">
+        id = #{record.id,jdbcType=INTEGER},
+      </if>
+      <if test="record.orderno != null">
+        orderNo = #{record.orderno,jdbcType=VARCHAR},
+      </if>
+      <if test="record.goodsno != null">
+        goodsNo = #{record.goodsno,jdbcType=VARCHAR},
+      </if>
+      <if test="record.goodsnum != null">
+        goodsNum = #{record.goodsnum,jdbcType=INTEGER},
+      </if>
+      <if test="record.totalprice != null">
+        totalPrice = #{record.totalprice,jdbcType=DECIMAL},
+      </if>
+      <if test="record.actualprice != null">
+        actualPrice = #{record.actualprice,jdbcType=DECIMAL},
+      </if>
+      <if test="record.comment != null">
+        comment = #{record.comment,jdbcType=VARCHAR},
+      </if>
+      <if test="record.createtime != null">
+        createTime = #{record.createtime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="record.updatetime != null">
+        updateTime = #{record.updatetime,jdbcType=TIMESTAMP},
+      </if>
+    </set>
+    <if test="_parameter != null">
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExample" parameterType="map">
+    update t_order_detail
+    set id = #{record.id,jdbcType=INTEGER},
+      orderNo = #{record.orderno,jdbcType=VARCHAR},
+      goodsNo = #{record.goodsno,jdbcType=VARCHAR},
+      goodsNum = #{record.goodsnum,jdbcType=INTEGER},
+      totalPrice = #{record.totalprice,jdbcType=DECIMAL},
+      actualPrice = #{record.actualprice,jdbcType=DECIMAL},
+      comment = #{record.comment,jdbcType=VARCHAR},
+      createTime = #{record.createtime,jdbcType=TIMESTAMP},
+      updateTime = #{record.updatetime,jdbcType=TIMESTAMP}
+    <if test="_parameter != null">
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByPrimaryKeySelective" parameterType="com.danny.seckill.dao.mybatis.data.order.OrderDetailDO">
+    update t_order_detail
+    <set>
+      <if test="orderno != null">
+        orderNo = #{orderno,jdbcType=VARCHAR},
+      </if>
+      <if test="goodsno != null">
+        goodsNo = #{goodsno,jdbcType=VARCHAR},
+      </if>
+      <if test="goodsnum != null">
+        goodsNum = #{goodsnum,jdbcType=INTEGER},
+      </if>
+      <if test="totalprice != null">
+        totalPrice = #{totalprice,jdbcType=DECIMAL},
+      </if>
+      <if test="actualprice != null">
+        actualPrice = #{actualprice,jdbcType=DECIMAL},
+      </if>
+      <if test="comment != null">
+        comment = #{comment,jdbcType=VARCHAR},
+      </if>
+      <if test="createtime != null">
+        createTime = #{createtime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updatetime != null">
+        updateTime = #{updatetime,jdbcType=TIMESTAMP},
+      </if>
+    </set>
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.danny.seckill.dao.mybatis.data.order.OrderDetailDO">
+    update t_order_detail
+    set orderNo = #{orderno,jdbcType=VARCHAR},
+      goodsNo = #{goodsno,jdbcType=VARCHAR},
+      goodsNum = #{goodsnum,jdbcType=INTEGER},
+      totalPrice = #{totalprice,jdbcType=DECIMAL},
+      actualPrice = #{actualprice,jdbcType=DECIMAL},
+      comment = #{comment,jdbcType=VARCHAR},
+      createTime = #{createtime,jdbcType=TIMESTAMP},
+      updateTime = #{updatetime,jdbcType=TIMESTAMP}
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+</mapper>

@@ -21,4 +21,12 @@ public interface GoodsService {
      * @return
      */
     CommonResult<Goods> findByGoodsNo(GoodsParameter goodsParameter);
+
+    /**
+     * 从缓存中查询商品信息
+     *
+     * @param goodsParameter
+     * @return
+     */
+    CommonResult<Goods> getGoodsFromCache(GoodsParameter goodsParameter);
 }

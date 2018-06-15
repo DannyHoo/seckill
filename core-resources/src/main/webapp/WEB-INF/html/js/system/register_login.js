@@ -43,7 +43,7 @@ function doRegister() {
             if (data.code == 100000) {
                 layer.msg('注册成功，请在收到注册邮件后点击链接激活账户~');
                 window.event.returnValue = false;
-                window.location.href = getRootPath() + "/index.html";
+                window.location.href = getRootPath() + "/seckill/index.html";
             } else {
                 layer.msg('注册失败，原因：' + data.message);
             }
@@ -74,7 +74,7 @@ function doLogin() {
         success: function (data) {
             if (data.code == 100000) {
                 window.event.returnValue = false;
-                window.location.href = getRootPath() + "/index.html";
+                window.location.href = getRootPath() + "/seckill/index.html";
             } else {
                 layer.msg('登录失败，原因：' + data.message);
             }

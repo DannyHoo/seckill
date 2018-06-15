@@ -7,7 +7,7 @@
 
     <context-param>
         <param-name>logbackConfigLocation</param-name>
-        <param-value> classpath:log/logback.xml</param-value>
+        <param-value>classpath:log/logback.xml</param-value>
     </context-param>
 
     <!-- 加载spring容器 -->
@@ -45,6 +45,7 @@
         <url-pattern>/</url-pattern>
     </servlet-mapping>
 
+    <!-- 防止SpringMVC报406 -->
     <servlet-mapping>
         <servlet-name>dispatcherServlet</servlet-name>
         <url-pattern>*.action</url-pattern>

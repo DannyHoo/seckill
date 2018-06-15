@@ -25,11 +25,17 @@ public class CacheFactory {
      * @return
      */
     public static Cache getCache(CacheTypeEnum cacheTypeEnum) {
-        switch (cacheTypeEnum) {
-            case LOCAL_MEMORY_CACHE:
-                cache = new LocalMemoryCacheImpl();
-            default:
-                cache = new LocalMemoryCacheImpl();
+        if (cache == null) {
+            synchronized (CacheFactory.class) {
+                if (cache != null) return cache;
+                switch (cacheTypeEnum) {
+                    case LOCAL_MEMORY_CACHE:
+                        cache = new LocalMemoryCacheImpl();
+                    default:
+                        cache = new LocalMemoryCacheImpl();
+                }
+                return cache;
+            }
         }
         return cache;
     }

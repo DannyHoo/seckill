@@ -22,9 +22,13 @@ public enum ResultStatusEnum implements ResultStatusEnumInterface {
     //必须的参数为空
     PARAMETER_IS_NULL(100003,"参数为空"),
 
-
+    //登录注册 200000~200999
     USER_ALREADY_EXIST(200000,"用户名已存在"),
-    USERNAME_OR_PASSWORD_INVALID(200010,"用户名或密码错误")
+    USERNAME_OR_PASSWORD_INVALID(200010,"用户名或密码错误"),
+    USER_NOT_LOGIN(200020,"用户尚未登录，请登录系统"),
+
+    //秒杀请求 201000~201999
+
     ;
 
     private int code;

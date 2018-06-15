@@ -23,6 +23,8 @@ public class Goods extends BaseBean {
 
     private BigDecimal nowprice;
 
+    private Integer totalnum;
+
     private Integer balance;
 
     private String description;
@@ -66,6 +68,15 @@ public class Goods extends BaseBean {
 
     public Goods setNowprice(BigDecimal nowprice) {
         this.nowprice = nowprice;
+        return this;
+    }
+
+    public Integer getTotalnum() {
+        return totalnum;
+    }
+
+    public Goods setTotalnum(Integer totalnum) {
+        this.totalnum = totalnum;
         return this;
     }
 

@@ -4,8 +4,6 @@
 <meta charset="UTF-8">
 <title>秒杀</title>
 <link href="/css/seckill/index/1yms.css" type="text/css" rel="stylesheet" />
-<script type="text/javascript" src="/plugins/jquery/jquery.min.js"></script>
-<script type="text/javascript" src="/plugins/jquery/jquery.countdown.js"></script>
 
 </head>
 
@@ -25,17 +23,18 @@
 
 				<div class="ms_border">
 					<div class="floor1_left">
-						<img src="${goods.pictureUrl}">
+						<img id="goodsImg" src="">
 					</div>
 					<div class="floor1_right">
 						<div class="floor1_right_text">
-							<div class="floor1_right_title">${goods.name}</div>
-							<div class="floor1_right_news">${goods.description}</div>
+							<input id="goodsNo" type="hidden" value="G20180614160305682062">
+							<div class="floor1_right_title" id="goodsName"></div>
+							<div class="floor1_right_news" id="goodsDesc"></div>
 							<div class="floor1_time">
 								<div class="time_tb">
 									<img src="/images/seckill/time.png">
 								</div>
-								<div class="time_text">剩余：</div>
+								<div class="time_text"></div>
 								<div id="countdown-timer1">
 									<!-- <div class="block">
 										<span id="weeks"></span>周
@@ -61,7 +60,7 @@
 								<div class="has">
 									<img src="/images/seckill/has.png">
 								</div>
-								<div class="red" style="font-weight: bold;">5867</div>
+								<div id="seckilledNum" class="red" style="font-weight: bold;">5867</div>
 								<div class="te">瓶已抢</div>
 							</div>
 							<div style="clear: both; height: 85px;"></div>
@@ -71,7 +70,7 @@
 									<div class="red floor1_three_size">1</div>
 									<div class="yh">￥3.00</div>
 								</div>
-								<a href="#"><div class="subnow">马上抢</div></a>
+								<a href="" onclick="return false;" disabled="true"><div id="doSeckill" class="subnow" style="background-color:#CCCCCC;">马上抢</div></a>
 							</div>
 						</div>
 					</div>
@@ -199,7 +198,9 @@
 		</div>
 	</div>
 	<div style="clear: both"></div>
-
+	<script src="/plugins/jquery/jquery.min.js"></script>
+	<script type="text/javascript" src="/plugins/jquery/jquery.countdown.js"></script>
+	<script src="/plugins/layui/lay/modules/layer.js"></script>
 	<script type="text/javascript" src="/js/seckill/seckill.js"></script>
 </body>
 </html>

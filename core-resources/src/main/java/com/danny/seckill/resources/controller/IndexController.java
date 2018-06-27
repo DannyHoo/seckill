@@ -1,5 +1,7 @@
 package com.danny.seckill.resources.controller;
 
+import com.danny.seckill.framework.core.PropertyPlaceholder;
+import com.danny.seckill.framework.util.StringUtil;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 
@@ -14,8 +16,12 @@ import org.springframework.web.bind.annotation.RequestMapping;
 @Controller
 public class IndexController {
 
-    @RequestMapping("/index")
-    public String login(){
+    @RequestMapping(value={"/","/index"})
+    public String index1() {
+        String defaultWelcomePage = PropertyPlaceholder.getProperty("defaultWelcomePage");
+        if (StringUtil.isNotEmpty(defaultWelcomePage)) {
+            return defaultWelcomePage;
+        }
         return "index";
     }
 }

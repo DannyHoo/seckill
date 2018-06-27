@@ -30,7 +30,7 @@ public class SeckillServiceImpl extends BaseServiceImpl implements SeckillServic
      * @return
      */
     @Override
-    public CommonResult<Goods> reduceGoodsStock(final SeckillParameter seckillParameter) {
+    public CommonResult<Boolean> reduceGoodsStock(final SeckillParameter seckillParameter) {
         String bizAction = "reduceGoodsStock";
         //以分布式锁的方式执行
         CallbackResult callbackResult = this.getServiceTemplate().executeDistributeLock(new ServiceCallbackAction() {
@@ -45,6 +45,6 @@ public class SeckillServiceImpl extends BaseServiceImpl implements SeckillServic
                 return null;
             }
         }, REDUCE_GOODS_STOCK_LOCKKEY);
-        return null;
+        return this.getCommonResult(callbackResult);
     }
 }

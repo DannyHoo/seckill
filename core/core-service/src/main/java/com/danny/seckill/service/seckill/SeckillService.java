@@ -14,6 +14,6 @@ import com.danny.seckill.model.result.CommonResult;
  */
 public interface SeckillService {
 
-    CommonResult<Goods> reduceGoodsStock(SeckillParameter seckillParameter);
+    CommonResult<Boolean> reduceGoodsStock(SeckillParameter seckillParameter);
 
 }

@@ -7,6 +7,8 @@ $(function () {
         $("#goodsImg").attr("src", data.goods.pictureurl);
         $("#goodsName").html(data.goods.name);
         $("#goodsDesc").html(data.goods.description);
+        $("#nowPrice").html(data.goods.nowprice);
+        $("#originPrice").html(data.goods.originprice);
         var scekilledNum = data.goods.totalnum - data.goods.balance;
         $("#seckilledNum").html(scekilledNum);
 

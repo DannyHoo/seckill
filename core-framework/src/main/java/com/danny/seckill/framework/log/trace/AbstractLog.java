@@ -12,7 +12,7 @@ import com.danny.seckill.framework.util.IPUtils;
  * @Created on 2018-06-11 23:47:49
  */
 public class AbstractLog {
-    /* 是否打开system.out日志输出 */
+    /* 是否打开system.out日志输出，默认不打开，本地开发环境可以配置打开 */
     public static final boolean isOpenSystemOutLog = Boolean.parseBoolean(System.getProperty("isOpenSystemOutLog", "false"));
 
     private static String newLineFlag = "\n";

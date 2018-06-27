@@ -75,6 +75,7 @@ public class SeckillController extends BaseController {
     public ResponseData doSeckill(HttpServletRequest request) {
         Map<String, Object> map = new HashMap<String, Object>();
         //1、请求合法校验
+        //是否已经登录
         User user = SessionUtils.getUser(request);
         if (user == null) {
             return new ResponseData(ResultStatusEnum.USER_NOT_LOGIN, null);

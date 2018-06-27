@@ -1,6 +1,7 @@
 package com.danny.seckill.framework.concurrent;
 
 import java.util.concurrent.locks.Lock;
+import java.util.concurrent.locks.ReentrantLock;
 
 /**
  * @author dannyhoo
@@ -12,8 +13,22 @@ import java.util.concurrent.locks.Lock;
  */
 public class LockServiceImpl implements LockService {
 
+    //单机部署时并不需要分布式锁-standalone；集群部署时需要分布式锁-cluster
+    private static final String deployType = System.getProperty("deployType", "standalone");
+
+    private String STANDALONE = "standalone";
+    private String CLUSTER = "cluster";
+
+    private static Lock lock;
+
     @Override
     public Lock getDistributeLock(String lockKey) {
-        return null;
+        if (lock != null) {
+            return lock;
+        }
+        if (STANDALONE.equals(deployType)) {
+            lock = new ReentrantLock();
+        }
+        return lock;
     }
 }

@@ -17,12 +17,15 @@
 
 # 项目启动参数整理
 
-1、项目启动环境
+1、【配置文件】项目启动环境
 
 ```-DenvType=dev/test/online ```
 
-2、是否在控制台打印日志
+2、【日志】是否在控制台打印日志，默认false
   
 ```-DisOpenSystemOutLog=true/false ```
 
+3、【获取分布式锁】部署方式是单机还是集群，默认standalone
+
+```-DdeployType=standalone/cluster ```
 

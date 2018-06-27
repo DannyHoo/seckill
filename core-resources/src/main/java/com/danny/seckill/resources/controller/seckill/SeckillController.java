@@ -66,7 +66,7 @@ public class SeckillController extends BaseController {
         CommonResult<Goods> goodsFindCommonResult = goodsService.findByGoodsNo(new GoodsParameter().setGoodsno(goodsNo));
         Goods goods = goodsFindCommonResult.getBusinessObject();
         map.put("goods", goods);
-        map.put("nowTime", DateUtils.getNewFormatDateString(DateUtils.getNowDate()));
+        map.put("nowTime", DateUtils.getNowDate());
         return map;
     }
 

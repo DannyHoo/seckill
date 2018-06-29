@@ -10,9 +10,9 @@
 
 5、集成缓存（framework-cache）
 
-6、集成消息队列(framework-mq)
+6、支持分布式锁（service层封装framework-service）
 
-7、支持分布式锁（service层封装framework-service）
+7、集成消息队列(framework-mq)
 
 
 # 项目启动参数整理

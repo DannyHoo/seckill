@@ -3,9 +3,7 @@ package com.danny.seckill.framework.log.enums;
 /**
  * @author dannyhoo
  * @Title: LogAlarmTypeEnum
- * @Copyright: Copyright (c) 2016
  * @Description:
- * @Company: lxjr.com
  * @Created on 2018-06-12 00:07:27
  */
 public enum  LogAlarmTypeEnum {

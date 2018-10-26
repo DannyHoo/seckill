@@ -3,9 +3,7 @@ package com.danny.seckill.framework.service;
 /**
  * @author dannyhoo
  * @Title: ServiceTemplate
- * @Copyright: Copyright (c) 2016
  * @Description: service模板
- * @Company: lxjr.com
  * @Created on 2018-05-31 10:18:23
  */
 public interface ServiceTemplate {

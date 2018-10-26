@@ -7,9 +7,7 @@ import java.util.Date;
 /**
  * @author dannyhoo
  * @Title: UserParameter
- * @Copyright: Copyright (c) 2016
  * @Description:
- * @Company: lxjr.com
  * @Created on 2018-05-30 22:45:18
  */
 public class UserParameter extends BaseParameter{

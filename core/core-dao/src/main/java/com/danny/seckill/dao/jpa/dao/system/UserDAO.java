@@ -9,9 +9,7 @@ import org.springframework.data.repository.PagingAndSortingRepository;
 /**
  * @author dannyhoo
  * @Title: UserDAO
- * @Copyright: Copyright (c) 2016
  * @Description:
- * @Company: lxjr.com
  * @Created on 2017-02-18 14:54:43
  */
 public interface UserDAO extends BaseDao<UserDO>,PagingAndSortingRepository<UserDO,Long>{

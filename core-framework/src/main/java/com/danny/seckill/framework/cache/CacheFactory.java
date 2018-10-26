@@ -6,9 +6,7 @@ import com.danny.seckill.framework.cache.impl.LocalMemoryCacheImpl;
 /**
  * @author dannyhoo
  * @Title: CacheFactory
- * @Copyright: Copyright (c) 2016
  * @Description:
- * @Company: lxjr.com
  * @Created on 2018-06-11 10:52:08
  */
 public class CacheFactory {

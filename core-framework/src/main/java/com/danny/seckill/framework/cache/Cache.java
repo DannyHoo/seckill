@@ -3,9 +3,7 @@ package com.danny.seckill.framework.cache;
 /**
  * @author dannyhoo
  * @Title: Cache
- * @Copyright: Copyright (c) 2016
  * @Description:
- * @Company: lxjr.com
  * @Created on 2018-06-11 10:45:59
  */
 public interface Cache {

@@ -7,9 +7,7 @@ import java.math.BigDecimal;
 /**
  * @author huyuyang@lxfintech.com
  * @Title: OrderDetail
- * @Copyright: Copyright (c) 2016
  * @Description:
- * @Company: lxjr.com
  * @Created on 2018-06-14 17:42:14
  */
 public class OrderDetail extends BaseBean {

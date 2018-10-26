@@ -6,9 +6,7 @@ import java.util.Map;
 /**
  * @author dannyhoo
  * @Title: ResultStatusEnum
- * @Copyright: Copyright (c) 2016
  * @Description:
- * @Company: lxjr.com
  * @Created on 2018-05-30 23:10:58
  */
 public enum ResultStatusEnum implements ResultStatusEnumInterface {

@@ -5,21 +5,17 @@ import java.util.concurrent.locks.ReentrantLock;
 
 /**
  * @author dannyhoo
- * @Title: LockServiceImpl
- * @Copyright: Copyright (c) 2016
+ * @Title: DefaultLockServiceImpl
  * @Description:
- * @Company: lxjr.com
  * @Created on 2018-06-04 17:31:10
  */
-public class LockServiceImpl implements LockService {
+public class DefaultLockServiceImpl extends AbstractLockServiceImpl implements LockService {
 
     //单机部署时并不需要分布式锁-standalone；集群部署时需要分布式锁-cluster
     private static final String deployType = System.getProperty("deployType", "standalone");
 
     private String STANDALONE = "standalone";
     private String CLUSTER = "cluster";
-
-    private static Lock lock;
 
     @Override
     public Lock getDistributeLock(String lockKey) {

@@ -6,9 +6,7 @@ import org.springframework.core.NamedThreadLocal;
 /**
  * @author huyuyang@lxfintech.com
  * @Title: GlobalTraceDataHandler
- * @Copyright: Copyright (c) 2016
  * @Description:
- * @Company: lxjr.com
  * @Created on 2018-06-12 09:40:56
  */
 public class GlobalTraceDataHandler {

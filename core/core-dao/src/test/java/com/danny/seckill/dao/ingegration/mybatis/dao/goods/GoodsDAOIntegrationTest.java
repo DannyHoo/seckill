@@ -16,9 +16,7 @@ import java.util.Date;
 /**
  * @author huyuyang@lxfintech.com
  * @Title: GoodsDAOIntegrationTest
- * @Copyright: Copyright (c) 2016
  * @Description:
- * @Company: lxjr.com
  * @Created on 2018-06-14 15:35:52
  */
 public class GoodsDAOIntegrationTest extends BaseDaoSpringTest {

@@ -1,9 +1,8 @@
 package com.danny.seckill.framework.service;
 
+import com.danny.seckill.framework.concurrent.DefaultLockServiceImpl;
 import com.danny.seckill.framework.concurrent.LockService;
-import com.danny.seckill.framework.concurrent.LockServiceImpl;
 import com.danny.seckill.framework.model.enums.ResultStatusEnum;
-import okhttp3.Call;
 import org.springframework.transaction.PlatformTransactionManager;
 import org.springframework.transaction.TransactionStatus;
 import org.springframework.transaction.support.TransactionCallback;
@@ -14,9 +13,7 @@ import java.util.concurrent.locks.Lock;
 /**
  * @author dannyhoo
  * @Title: ServiceTemplateImpl
- * @Copyright: Copyright (c) 2016
  * @Description:
- * @Company: lxjr.com
  * @Created on 2018-05-31 10:45:09
  */
 public class ServiceTemplateImpl implements ServiceTemplate {
@@ -41,7 +38,7 @@ public class ServiceTemplateImpl implements ServiceTemplate {
 
     private LockService getLockService() {
         if (this.lockService == null) {
-            lockService = new LockServiceImpl();
+            lockService = new DefaultLockServiceImpl();
         }
         return this.lockService;
     }

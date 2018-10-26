@@ -5,9 +5,7 @@ import com.danny.seckill.framework.cache.Cache;
 /**
  * @author dannyhoo
  * @Title: RedisCacheImpl
- * @Copyright: Copyright (c) 2016
  * @Description:
- * @Company: lxjr.com
  * @Created on 2018-06-11 10:53:06
  */
 public class RedisCacheImpl implements Cache {

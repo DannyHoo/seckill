@@ -8,9 +8,7 @@ import java.util.Date;
 /**
  * @author dannyhoo
  * @Title: BaseBean
- * @Copyright: Copyright (c) 2016
  * @Description:
- * @Company: lxjr.com
  * @Created on 2017-02-18 15:32:45
  */
 public class BaseBean implements Serializable {

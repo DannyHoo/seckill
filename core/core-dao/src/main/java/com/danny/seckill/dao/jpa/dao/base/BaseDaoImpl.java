@@ -10,9 +10,7 @@ import java.util.List;
 /**
  * @author dannyhoo
  * @Title: BaseDaoImpl
- * @Copyright: Copyright (c) 2016
  * @Description:
- * @Company: lxjr.com
  * @Created on 2017-03-12 14:41:56
  */
 public class BaseDaoImpl<T> extends SimpleJpaRepository<T, Long> implements BaseDao<T> {

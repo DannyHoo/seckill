@@ -18,9 +18,7 @@ import org.springframework.transaction.support.TransactionTemplate;
 /**
  * @author dannyhoo
  * @Title: UserServiceImpl
- * @Copyright: Copyright (c) 2016
  * @Description:
- * @Company: lxjr.com
  * @Created on 2018-05-30 22:50:48
  */
 @Service("userService")

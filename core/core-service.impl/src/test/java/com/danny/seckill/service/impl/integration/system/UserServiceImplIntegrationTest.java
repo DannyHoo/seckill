@@ -13,9 +13,7 @@ import org.springframework.test.annotation.Rollback;
 /**
  * @author dannyhoo
  * @Title: UserServiceImplIntegrationTest
- * @Copyright: Copyright (c) 2016
  * @Description:
- * @Company: lxjr.com
  * @Created on 2018-05-31 17:22:30
  */
 public class UserServiceImplIntegrationTest extends BaseServiceSpringTest {

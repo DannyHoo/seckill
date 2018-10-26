@@ -8,9 +8,7 @@ import java.util.Date;
 /**
  * @author huyuyang@lxfintech.com
  * @Title: Goods
- * @Copyright: Copyright (c) 2016
  * @Description:
- * @Company: lxjr.com
  * @Created on 2018-06-14 17:41:02
  */
 public class Goods extends BaseBean {

@@ -7,14 +7,12 @@ import java.util.concurrent.locks.Lock;
 /**
  * @author huyuyang@lxfintech.com
  * @Title: LockImplTest
- * @Copyright: Copyright (c) 2016
  * @Description:
- * @Company: lxjr.com
  * @Created on 2018-06-27 10:04:17
  */
 public class LockImplTest {
 
-    private LockService lockService=new LockServiceImpl();
+    private LockService lockService=new DefaultLockServiceImpl();
 
     @Test
     public void getDistributeLockTest(){

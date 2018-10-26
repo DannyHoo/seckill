@@ -6,9 +6,7 @@ import com.danny.seckill.framework.util.IPUtils;
 /**
  * @author dannyhoo
  * @Title: AbstractLog
- * @Copyright: Copyright (c) 2016
  * @Description:
- * @Company: lxjr.com
  * @Created on 2018-06-11 23:47:49
  */
 public class AbstractLog {

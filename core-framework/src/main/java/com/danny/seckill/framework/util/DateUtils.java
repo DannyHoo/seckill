@@ -14,9 +14,7 @@ import java.util.GregorianCalendar;
 /**
  * @author dannyhoo
  * @Title: DateUtils
- * @Copyright: Copyright (c) 2016
  * @Description:
- * @Company: lxjr.com
  * @Created on 2018-06-11 23:41:20
  */
 public class DateUtils extends org.apache.commons.lang.time.DateUtils {

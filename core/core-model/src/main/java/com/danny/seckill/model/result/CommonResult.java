@@ -11,9 +11,7 @@ import java.io.ObjectOutput;
 /**
  * @author dannyhoo
  * @Title: CommonResult
- * @Copyright: Copyright (c) 2016
  * @Description:
- * @Company: lxjr.com
  * @Created on 2018-05-30 22:58:01
  */
 public class CommonResult<B> implements Externalizable {

@@ -7,9 +7,7 @@ import com.danny.seckill.model.result.CommonResult;
 /**
  * @author dannyhoo
  * @Title: UserService
- * @Copyright: Copyright (c) 2016
  * @Description:
- * @Company: lxjr.com
  * @Created on 2018-01-07 23:03:16
  */
 public interface UserService {

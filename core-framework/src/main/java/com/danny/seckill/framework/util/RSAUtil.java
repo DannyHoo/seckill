@@ -14,9 +14,7 @@ import java.util.HashMap;
 /**
  * @author dannyhoo
  * @Title: RSAUtil
- * @Copyright: Copyright (c) 2016
  * @Description:
- * @Company: lxjr.com
  * @Created on 2018-06-11 15:26:56
  */
 public class RSAUtil {

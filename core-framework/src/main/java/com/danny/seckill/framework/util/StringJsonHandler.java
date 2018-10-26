@@ -7,9 +7,7 @@ import java.math.BigDecimal;
 /**
  * @author dannyhoo
  * @Title: StringJsonHandler
- * @Copyright: Copyright (c) 2016
  * @Description:
- * @Company: lxjr.com
  * @Created on 2018-06-11 23:34:14
  */
 public class StringJsonHandler {

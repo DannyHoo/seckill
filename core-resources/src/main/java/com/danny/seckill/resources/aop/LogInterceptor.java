@@ -14,10 +14,8 @@ import java.util.UUID;
 /**
  * @author huyuyang@lxfintech.com
  * @Title: LogInterceptor
- * @Copyright: Copyright (c) 2016
  * @Description: SpringMVC日志拦截器
  * MVC执行顺序：preHandler -> Controller -> postHandler -> model渲染-> afterCompletion
- * @Company: lxjr.com
  * @Created on 2018-06-12 15:48:48
  */
 public class LogInterceptor extends AbstractInterceptor {

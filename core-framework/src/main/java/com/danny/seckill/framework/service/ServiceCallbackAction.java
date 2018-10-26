@@ -4,9 +4,7 @@ package com.danny.seckill.framework.service;
 /**
  * @author dannyhoo
  * @Title: ServiceCallbackAction
- * @Copyright: Copyright (c) 2016
  * @Description: service执行内容
- * @Company: lxjr.com
  * @Created on 2018-05-31 10:26:04
  */
 public interface ServiceCallbackAction {

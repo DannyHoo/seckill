@@ -8,9 +8,7 @@ import java.util.Date;
 /**
  * @author huyuyang@lxfintech.com
  * @Title: Order
- * @Copyright: Copyright (c) 2016
  * @Description:
- * @Company: lxjr.com
  * @Created on 2018-06-14 17:41:41
  */
 public class Order extends BaseBean{

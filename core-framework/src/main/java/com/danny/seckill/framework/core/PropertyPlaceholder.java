@@ -11,9 +11,7 @@ import java.util.Properties;
 /**
  * @author dannyhoo
  * @Title: PropertyPlaceholder
- * @Copyright: Copyright (c) 2016
  * @Description:
- * @Company: lxjr.com
  * @Created on 2018-06-11 15:45:42
  */
 public class PropertyPlaceholder extends PropertyPlaceholderConfigurer {

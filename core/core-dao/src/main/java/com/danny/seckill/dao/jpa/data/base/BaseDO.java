@@ -10,9 +10,7 @@ import java.util.Date;
 /**
  * @author dannyhoo
  * @Title: BaseDO
- * @Copyright: Copyright (c) 2016
  * @Description:
- * @Company: lxjr.com
  * @Created on 2017-01-19 22:31:24
  */
 @MappedSuperclass

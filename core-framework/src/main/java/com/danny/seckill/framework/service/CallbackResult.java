@@ -6,9 +6,7 @@ import com.danny.seckill.framework.model.enums.ResultStatusEnumInterface;
 /**
  * @author dannyhoo
  * @Title: CallbackResult
- * @Copyright: Copyright (c) 2016
  * @Description:
- * @Company: lxjr.com
  * @Created on 2018-05-31 10:20:19
  */
 public class CallbackResult {

@@ -7,9 +7,7 @@ import org.springframework.test.context.junit4.AbstractTransactionalJUnit4Spring
 /**
  * @author dannyhoo
  * @Title: BaseServiceSpringTest
- * @Copyright: Copyright (c) 2016
  * @Description:
- * @Company: lxjr.com
  * @Created on 2018-05-31 17:21:59
  */
 @ContextConfiguration(locations = {"classpath:/spring/applicationContext-service-test.xml"})

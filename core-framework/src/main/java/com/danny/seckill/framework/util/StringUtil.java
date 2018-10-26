@@ -8,9 +8,7 @@ import java.util.UUID;
 /**
  * @author dannyhoo
  * @Title: StringUtil
- * @Copyright: Copyright (c) 2016
  * @Description:
- * @Company: lxjr.com
  * @Created on 2018-06-11 14:15:05
  */
 public class StringUtil {

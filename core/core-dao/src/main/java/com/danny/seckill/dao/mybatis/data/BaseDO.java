@@ -6,9 +6,7 @@ import java.util.Date;
 /**
  * @author dannyhoo
  * @Title: BaseDO
- * @Copyright: Copyright (c) 2016
  * @Description:
- * @Company: lxjr.com
  * @Created on 2018-05-31 10:49:16
  */
 public class BaseDO implements Serializable {

@@ -5,9 +5,7 @@ import com.danny.seckill.framework.BaseModel;
 /**
  * @author dannyhoo
  * @Title: GlobalTraceData
- * @Copyright: Copyright (c) 2016
  * @Description: 当次请求所带的关键信息
- * @Company: lxjr.com
  * @Created on 2018-06-12 09:16:41
  */
 public class GlobalTraceData extends BaseModel{

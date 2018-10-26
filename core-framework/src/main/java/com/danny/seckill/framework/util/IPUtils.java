@@ -12,9 +12,7 @@ import java.util.Enumeration;
 /**
  * @author huyuyang@lxfintech.com
  * @Title: IPUtils
- * @Copyright: Copyright (c) 2016
  * @Description:
- * @Company: lxjr.com
  * @Created on 2018-06-12 10:14:22
  */
 public class IPUtils {

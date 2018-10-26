@@ -20,15 +20,14 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 import java.util.HashMap;
 import java.util.Map;
 
 /**
  * @author dannyhoo
  * @Title: IndexController
- * @Copyright: Copyright (c) 2016
  * @Description:
- * @Company: lxjr.com
  * @Created on 2018-06-07 10:57:10
  */
 @Controller
@@ -76,7 +75,7 @@ public class SeckillController extends BaseController {
         Map<String, Object> map = new HashMap<String, Object>();
         //1、请求合法校验
         //是否已经登录
-        User user = SessionUtils.getUser(request);
+        User user = SessionUtils.getCurrentUser(request);
         if (user == null) {
             return new ResponseData(ResultStatusEnum.USER_NOT_LOGIN, null);
         }

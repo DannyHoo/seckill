@@ -11,9 +11,7 @@ import java.util.HashMap;
 /**
  * @author dannyhoo
  * @Title: UserBusiness
- * @Copyright: Copyright (c) 2016
  * @Description:
- * @Company: lxjr.com
  * @Created on 2018-01-07 22:03:59
  */
 @Component

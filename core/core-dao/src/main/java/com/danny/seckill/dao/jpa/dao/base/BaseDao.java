@@ -8,9 +8,7 @@ import java.util.List;
 /**
  * @author dannyhoo
  * @Title: BaseDao
- * @Copyright: Copyright (c) 2016
  * @Description:
- * @Company: lxjr.com
  * @Created on 2017-03-12 14:41:17
  */
 @NoRepositoryBean

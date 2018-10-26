@@ -7,9 +7,7 @@ import com.danny.seckill.model.param.BaseParameter;
 /**
  * @author huyuyang@lxfintech.com
  * @Title: SeckillParameter
- * @Copyright: Copyright (c) 2016
  * @Description:
- * @Company: lxjr.com
  * @Created on 2018-06-15 15:37:45
  */
 public class SeckillParameter extends BaseParameter {

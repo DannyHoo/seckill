@@ -23,9 +23,7 @@ import java.util.List;
 /**
  * @author dannyhoo
  * @Title: LogTraceAspect
- * @Copyright: Copyright (c) 2016
  * @Description:
- * @Company: lxjr.com
  * @Created on 2018-06-09 18:08:10
  */
 public class LogTraceAspect extends AbstractLog {

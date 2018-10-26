@@ -11,9 +11,7 @@ import java.util.Date;
 /**
  * @author dannyhoo
  * @Title: UserDO
- * @Copyright: Copyright (c) 2016
  * @Description: 用户
- * @Company: lxjr.com
  * @Created on 2017-01-19 22:26:37
  */
 @Entity

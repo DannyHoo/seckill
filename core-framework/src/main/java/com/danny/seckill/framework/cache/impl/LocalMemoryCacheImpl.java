@@ -12,10 +12,8 @@ import java.util.concurrent.locks.ReentrantLock;
 /**
  * @author dannyhoo
  * @Title: LocalMemoryCacheImpl
- * @Copyright: Copyright (c) 2016
  * @Description: 本地内存缓存
  * 参考：https://www.oschina.net/code/snippet_55577_3887
- * @Company: lxjr.com
  * @Created on 2018-06-11 10:52:56
  */
 public class LocalMemoryCacheImpl implements Cache {

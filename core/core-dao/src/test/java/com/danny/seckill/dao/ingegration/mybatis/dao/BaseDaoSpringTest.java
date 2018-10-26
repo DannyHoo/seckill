@@ -13,9 +13,7 @@ import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 /**
  * @author dannyhoo
  * @Title: BaseDaoSpringTest
- * @Copyright: Copyright (c) 2016
  * @Description:
- * @Company: lxjr.com
  * @Created on 2017-02-18 14:42:51
  */
 @RunWith(SpringJUnit4ClassRunner.class)

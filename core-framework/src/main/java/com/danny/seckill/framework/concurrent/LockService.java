@@ -5,9 +5,7 @@ import java.util.concurrent.locks.Lock;
 /**
  * @author dannyhoo
  * @Title: LockService
- * @Copyright: Copyright (c) 2016
  * @Description:
- * @Company: lxjr.com
  * @Created on 2018-06-04 17:31:01
  */
 public interface LockService {

@@ -24,9 +24,7 @@ import java.util.Date;
 /**
  * @author dannyhoo
  * @Title: UserController
- * @Copyright: Copyright (c) 2016
  * @Description:
- * @Company: lxjr.com
  * @Created on 2018-06-01 00:24:14
  */
 @RequestMapping("/user/")
@@ -56,7 +54,7 @@ public class UserController extends BaseController {
                 .setEmail(email).setUsername(userName).setPassword(password);
         CommonResult<User> loginResult = userService.register(userParameter);
         if (loginResult.isSuccess()) {
-            SessionUtils.setUser(request, loginResult.getBusinessObject());
+            SessionUtils.setCurrentUser(request, loginResult.getBusinessObject());
         }
         return ResponseData.newResponseData(loginResult);
     }
@@ -85,7 +83,7 @@ public class UserController extends BaseController {
                 .setUsername(userName).setPassword(password);
         CommonResult<User> loginResult = userService.login(userParameter);
         if (loginResult.isSuccess()) {
-            SessionUtils.setUser(request, loginResult.getBusinessObject());
+            SessionUtils.setCurrentUser(request, loginResult.getBusinessObject());
         }
         return ResponseData.newResponseData(loginResult);
     }

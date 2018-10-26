@@ -2,8 +2,25 @@ var longTime = 0;//当前时间
 
 $(function () {
 
+    /*var temp;
+    $.ajax({
+        async: false,
+        type: "post",
+        data: '{"mobileNo": "13001073366","type": "1"}',
+        url: "10.5.117.41:8080/user/sendMsg",
+        datatype: 'json',
+        success: function (data) {
+            temp = data;
+            alert(data);
+        },error: function(XMLHttpRequest, textStatus, errorThrown) {
+            alert(XMLHttpRequest.status);
+            alert(XMLHttpRequest.readyState);
+            alert(textStatus);
+        }
+    });*/
+
     //获取商品信息
-    $.get("/seckill/getGoodsInfo.action?goodsNo=G20180614160305682062"+$("#goodsNo").val(), function (data) {
+    $.get("/seckill/getGoodsInfo.action?goodsNo=G20180614160305682062" + $("#goodsNo").val(), function (data) {
         $("#goodsImg").attr("src", data.goods.pictureurl);
         $("#goodsName").html(data.goods.name);
         $("#goodsDesc").html(data.goods.description);
@@ -34,7 +51,7 @@ $(function () {
             });
         }
         //活动结束
-        if (nowtime >endtime) {
+        if (nowtime > endtime) {
             $("#doSeckill").css("background-color", "#CCCCCC");
             $("#doSeckill").on('click', function () {
             });

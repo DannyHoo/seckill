@@ -18,9 +18,7 @@ import java.util.List;
 /**
  * @author dannyhoo
  * @Title: UserGlue
- * @Copyright: Copyright (c) 2016
  * @Description:
- * @Company: lxjr.com
  * @Created on 2018-01-07 22:04:08
  */
 @Component

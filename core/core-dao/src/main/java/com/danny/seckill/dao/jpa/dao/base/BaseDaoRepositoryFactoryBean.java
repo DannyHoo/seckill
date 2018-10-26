@@ -13,9 +13,7 @@ import java.io.Serializable;
 /**
  * @author dannyhoo
  * @Title: BaseDaoRepositoryFactoryBean
- * @Copyright: Copyright (c) 2016
  * @Description:
- * @Company: lxjr.com
  * @Created on 2017-03-12 23:17:42
  */
 public class BaseDaoRepositoryFactoryBean<R extends JpaRepository<S, ID>,
@@ -27,7 +25,7 @@ public class BaseDaoRepositoryFactoryBean<R extends JpaRepository<S, ID>,
         return new BaseDaoFactory(entityManager);
     }
 
-    private static class BaseDaoFactory<S, ID extends Serializable>extends JpaRepositoryFactory {
+    private static class BaseDaoFactory<S, ID extends Serializable> extends JpaRepositoryFactory {
 
         public BaseDaoFactory(EntityManager entityManager) {
             super(entityManager);

@@ -3,9 +3,7 @@ package com.danny.seckill.framework.log.enums;
 /**
  * @author dannyhoo
  * @Title: LogCategoryEnum
- * @Copyright: Copyright (c) 2016
  * @Description:
- * @Company: lxjr.com
  * @Created on 2018-06-11 23:50:30
  */
 public enum LogCategoryEnum {

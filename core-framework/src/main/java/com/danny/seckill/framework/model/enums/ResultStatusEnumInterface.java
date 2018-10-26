@@ -3,9 +3,7 @@ package com.danny.seckill.framework.model.enums;
 /**
  * @author dannyhoo
  * @Title: ResultStatusEnumInterface
- * @Copyright: Copyright (c) 2016
  * @Description:
- * @Company: lxjr.com
  * @Created on 2018-05-30 23:11:16
  */
 public interface ResultStatusEnumInterface {

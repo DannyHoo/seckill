@@ -3,9 +3,7 @@ package com.danny.seckill.framework.log.enums;
 /**
  * @author dannyhoo
  * @Title: ResultTypeEnum
- * @Copyright: Copyright (c) 2016
  * @Description:
- * @Company: lxjr.com
  * @Created on 2018-06-11 23:59:07
  */
 public enum ResultTypeEnum {

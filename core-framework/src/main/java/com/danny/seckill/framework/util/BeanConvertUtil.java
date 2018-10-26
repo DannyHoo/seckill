@@ -14,9 +14,7 @@ import java.util.Set;
 /**
  * @author dannyhoo
  * @Title: BeanConvertUtil
- * @Copyright: Copyright (c) 2016
  * @Description:
- * @Company: lxjr.com
  * @Created on 2018-06-11 14:56:28
  */
 public class BeanConvertUtil extends org.apache.commons.beanutils.BeanUtils {

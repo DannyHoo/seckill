@@ -15,9 +15,7 @@ import java.util.Date;
 /**
  * @author dannyhoo
  * @Title: UserDAOIntegrationTest
- * @Copyright: Copyright (c) 2016
  * @Description:
- * @Company: lxjr.com
  * @Created on 2018-05-29 17:21:28
  */
 public class UserDAOIntegrationTest extends BaseDaoSpringTest {

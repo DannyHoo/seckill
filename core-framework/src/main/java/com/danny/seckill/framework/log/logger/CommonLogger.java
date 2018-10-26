@@ -5,9 +5,7 @@ import org.slf4j.Marker;
 /**
  * @author dannyhoo
  * @Title: CommonLogger
- * @Copyright: Copyright (c) 2016
  * @Description:
- * @Company: lxjr.com
  * @Created on 2018-06-07 21:18:29
  */
 public interface CommonLogger {

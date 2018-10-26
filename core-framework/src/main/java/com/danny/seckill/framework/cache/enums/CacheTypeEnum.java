@@ -3,9 +3,7 @@ package com.danny.seckill.framework.cache.enums;
 /**
  * @author dannyhoo
  * @Title: CacheTypeEnum
- * @Copyright: Copyright (c) 2016
  * @Description:
- * @Company: lxjr.com
  * @Created on 2018-06-11 12:59:42
  */
 public enum CacheTypeEnum {

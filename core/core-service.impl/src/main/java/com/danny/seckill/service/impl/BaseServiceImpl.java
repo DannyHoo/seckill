@@ -15,9 +15,7 @@ import java.lang.reflect.InvocationTargetException;
 /**
  * @author dannyhoo
  * @Title: BaseServiceImpl
- * @Copyright: Copyright (c) 2016
  * @Description:
- * @Company: lxjr.com
  * @Created on 2018-05-30 22:51:30
  */
 public class BaseServiceImpl {
@@ -43,7 +41,7 @@ public class BaseServiceImpl {
      * @return
      */
     protected <B> CommonResult<B> getCommonResult(CallbackResult callbackResult) {
-        return new CommonResult<>().setBusinessResult(callbackResult.getResultStatus())
+        return new CommonResult<B>().setBusinessResult(callbackResult.getResultStatus())
                 .setBusinessObject((B) callbackResult.getBusinessObject())
                 .setExceptionMsg(this.getExceptionMsg(callbackResult));
     }

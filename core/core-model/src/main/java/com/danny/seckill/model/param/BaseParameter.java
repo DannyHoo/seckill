@@ -8,9 +8,7 @@ import java.util.Date;
 /**
  * @author dannyhoo
  * @Title: BaseParameter
- * @Copyright: Copyright (c) 2016
  * @Description:
- * @Company: lxjr.com
  * @Created on 2018-05-30 22:45:41
  */
 public class BaseParameter extends GlobalTraceData {

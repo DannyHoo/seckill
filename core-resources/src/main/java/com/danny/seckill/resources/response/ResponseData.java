@@ -7,9 +7,7 @@ import com.danny.seckill.model.result.CommonResult;
 /**
  * @author dannyhoo
  * @Title: ResponseData
- * @Copyright: Copyright (c) 2016
  * @Description:
- * @Company: lxjr.com
  * @Created on 2018-06-11 14:18:21
  */
 public class ResponseData {

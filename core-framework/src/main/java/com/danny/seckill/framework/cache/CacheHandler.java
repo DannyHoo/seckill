@@ -5,9 +5,7 @@ import com.danny.seckill.framework.cache.enums.CacheTypeEnum;
 /**
  * @author dannyhoo
  * @Title: CacheHandler
- * @Copyright: Copyright (c) 2016
  * @Description:
- * @Company: lxjr.com
  * @Created on 2018-06-11 12:55:49
  */
 public class CacheHandler {
